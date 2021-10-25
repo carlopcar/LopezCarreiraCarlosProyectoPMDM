@@ -2,97 +2,130 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scvPadre"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutPadre"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="@color/purple_200">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gdregistro"
+            android:id="@+id/gdvertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
 
 
-        <TextView
-            android:id="@+id/tvinicio"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdhorizontal25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdhorizontal50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdhorizontal75"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <TextView
+            android:id="@+id/tvInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
             android:text="Inicio de Sesión"
-            android:textSize="20sp"
+            android:textColor="@color/purple_700"
+            android:textSize="30sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til1"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvInicio">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tvUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_200"
+                android:hint="Usuario"
+                android:textColor="@color/purple_700" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilUsuario1"
+            android:id="@+id/til2"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvinicio">
+            app:layout_constraintTop_toBottomOf="@+id/til1">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tilUsuario"
+                android:id="@+id/tvContraseña"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Usuario" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:background="@color/purple_200"
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilContraseña1"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilUsuario1">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tilContraseña"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Contraseña" />
+                android:hint="Contraseña"
+                android:textColor="@color/purple_500" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btiniciar"
+            android:id="@+id/btAcceder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="80dp"
             android:text="ACCEDER"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilContraseña1" />
+            app:layout_constraintTop_toBottomOf="@+id/til2" />
 
         <TextView
-            android:id="@+id/tvo"
+            android:id="@+id/tvO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:text="o"
+            android:textColor="@color/purple_500"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btiniciar" />
+            app:layout_constraintTop_toBottomOf="@+id/btAcceder" />
 
         <TextView
-            android:id="@+id/tvregistro"
+            android:id="@+id/tvRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="10dp"
             android:text="Registrarse"
+            android:textColor="@color/white"
+            android:background="@color/purple_500"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvo" />
+            app:layout_constraintTop_toBottomOf="@+id/tvO" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
