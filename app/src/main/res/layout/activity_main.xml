@@ -52,9 +52,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til1"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvInicio">
@@ -68,9 +70,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til2"
-            android:layout_width="300dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/til1">
