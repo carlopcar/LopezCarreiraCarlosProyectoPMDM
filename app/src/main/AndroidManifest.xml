@@ -11,9 +11,15 @@
         android:theme="@style/Theme.LopezCarreiraCarlosProyectoPMDM">
         <activity
             android:name=".RegistroUsuariosActivity"
-            android:exported="false" />
+            android:label="Registro"
+            android:exported="true">
+            <meta-data
+                android:name = "android.support.PARENT_ACTIVITY"
+                android:value = ".LoginActivity" />
+        </activity>
         <activity
             android:name=".LoginActivity"
+            android:label="Inicio de Sesión"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

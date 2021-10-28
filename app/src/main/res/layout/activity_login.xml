@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--Poner ScrollView-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scvPadre"
+    android:id="@+id/clLoginActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
@@ -39,37 +41,27 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.75" />
 
-        <TextView
-            android:id="@+id/tvInicio"
-            android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLoginUsueario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLoginUsuario"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:text="Inicio de Sesión"
-            android:textSize="30sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:hint="Usuario"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvInicio">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tvUsuario"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Usuario" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til2"
+            android:id="@+id/tilLoginContraseña"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -77,43 +69,44 @@
             android:layout_marginRight="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/til1">
+            app:layout_constraintTop_toBottomOf="@+id/tilLoginUsueario">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tvContraseña"
+                android:id="@+id/etLoginContraseña"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:hint="Contraseña" />
         </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btAcceder"
+        android:id="@+id/btLoginAcceder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="ACCEDER"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til2" />
+        app:layout_constraintTop_toBottomOf="@+id/tilLoginContraseña" />
 
     <TextView
-            android:id="@+id/tvO"
+            android:id="@+id/tvLoginO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="o"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btAcceder" />
+            app:layout_constraintTop_toBottomOf="@+id/btLoginAcceder" />
 
         <TextView
-            android:id="@+id/tvRegistro"
+            android:id="@+id/tvLoginRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Registrarse"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvO" />
+            app:layout_constraintTop_toBottomOf="@+id/tvLoginO" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
