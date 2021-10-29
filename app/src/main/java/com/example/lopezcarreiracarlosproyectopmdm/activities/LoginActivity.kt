@@ -1,4 +1,4 @@
-package com.example.lopezcarreiracarlosproyectopmdm
+package com.example.lopezcarreiracarlosproyectopmdm.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
         binding.tvLoginRegistro.setOnClickListener{
 
             //Iniciamos RegistroUsuarios al hacer click en Registro
-            val intent = Intent(this,RegistroUsuariosActivity::class.java)
+            val intent = Intent(this, RegistroUsuariosActivity::class.java)
             startActivity(intent)
 
         }

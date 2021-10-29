@@ -1,4 +1,4 @@
-package com.example.lopezcarreiracarlosproyectopmdm
+package com.example.lopezcarreiracarlosproyectopmdm.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -19,8 +19,10 @@ class RegistroUsuariosActivity : AppCompatActivity() {
             //SharedPreferences
 
             //Volver a Login
-            val intent = Intent(this,LoginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+
+
 
         }
     }
