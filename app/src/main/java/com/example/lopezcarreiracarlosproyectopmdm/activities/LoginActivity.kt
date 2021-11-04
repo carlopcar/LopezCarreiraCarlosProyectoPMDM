@@ -33,8 +33,8 @@ class LoginActivity : AppCompatActivity() {
             } else if (!psw.equals(binding.etLoginPsw.text.toString())) {
                 binding.etLoginPsw.setError("La contraseña no es correcta")
             } else {
-                //val intent = Intent(this, PeliculasActivity::class.java)
-                //startActivity(intent)
+                val intent = Intent(this, PeliculasActivity::class.java)
+                startActivity(intent)
             }
 
         }

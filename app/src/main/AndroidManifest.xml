@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lopezcarreiracarlosproyectopmdm">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,17 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LopezCarreiraCarlosProyectoPMDM">
         <activity
-            android:name=".activities.RegistroUsuariosActivity"
-            android:label="Registro"
-            android:exported="true">
+            android:name=".activities.PeliculasActivity"
+            android:exported="true"
+            android:label="Listado de Peliculas">
             <meta-data
-                android:name = "android.support.PARENT_ACTIVITY"
-                android:value = ".activities.LoginActivity" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.LoginActivity" />
+        </activity>
+        <activity
+            android:name=".activities.RegistroUsuariosActivity"
+            android:exported="true"
+            android:label="Registro">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.LoginActivity" />
         </activity>
         <activity
             android:name=".activities.LoginActivity"
-            android:label="Inicio de Sesión"
-            android:exported="true">
+            android:exported="true"
+            android:label="Inicio de Sesión">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

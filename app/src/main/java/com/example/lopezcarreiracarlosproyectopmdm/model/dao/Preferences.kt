@@ -8,10 +8,10 @@ class Preferences(val context: Context) {
     val archivoSP = "SharedPreferences"
     val preferences = context.getSharedPreferences(archivoSP, 0)
 
-    fun guardar(user: String, psswd: String) {
+    fun guardar(email: String, psw: String) {
 
-        preferences.edit().putString("email", user).commit()
-        preferences.edit().putString("psw", psswd).commit()
+        preferences.edit().putString("email", email).commit()
+        preferences.edit().putString("psw", psw).commit()
 
     }
 
