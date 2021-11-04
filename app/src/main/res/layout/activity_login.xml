@@ -42,42 +42,56 @@
             app:layout_constraintGuide_percent="0.75" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilLoginUsueario"
+        android:id="@+id/tilLoginEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="180dp"
         android:layout_marginRight="50dp"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        app:startIconDrawable="@android:drawable/ic_dialog_email"
+        app:startIconContentDescription="@string/email"
+        app:startIconTint="@color/primaryColor"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etLoginUsuario"
+            android:id="@+id/etLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Usuario"
+            android:hint="Email"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilLoginContraseña"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilLoginUsueario">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLoginPsw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="50dp"
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etLoginContraseña"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Contraseña" />
-        </com.google.android.material.textfield.TextInputLayout>
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+        app:startIconDrawable="@android:drawable/ic_lock_lock"
+        app:startIconContentDescription="@string/password"
+        app:startIconTint="@color/primaryColor"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilLoginEmail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLoginPsw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btLoginAcceder"
@@ -85,9 +99,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="ACCEDER"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilLoginContraseña" />
+        app:layout_constraintTop_toBottomOf="@+id/tilLoginPsw" />
 
     <TextView
             android:id="@+id/tvLoginO"
