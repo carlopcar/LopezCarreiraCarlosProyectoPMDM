@@ -23,10 +23,12 @@ class PeliculasActivity : AppCompatActivity() {
 
         //Creamos los componentes que necesita el ReciclerView con todos sus personajes
         val layoutManager = LinearLayoutManager(this)
-        val adapter = ListaPeliculasAdapter(listaPeliculas)
+        val adapter = ListaPeliculasAdapter(listaPeliculas,this)
 
         //Asociamos el RecyclerView con sus componentes
         binding.rvListaPeliculas.adapter = adapter
         binding.rvListaPeliculas.layoutManager = layoutManager
+
+
     }
 }

@@ -3,10 +3,16 @@ package com.example.lopezcarreiracarlosproyectopmdm.model.entities
 class Pelicula (
     var id:Long,
     var titulo: String,
-    var autor: String,
+    var director: String,
     var genero: String,
     var nota: String,
-    var url: String
+    var url: String,
+    var ano:String,
+    var duracion:String,
+    var musica:String,
+    var fotografia:String,
+    var pais:String,
+    var descripcion:String
     ){
 
 
