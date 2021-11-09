@@ -2,4 +2,5 @@
     <string name="app_name">LopezCarreiraCarlosProyectoPMDM</string>
     <string name="email">mi@extensión.com</string>
     <string name="password">Contraseña valida: entre 8 y 16 caracteres</string>
+    <string name="hint_introducir_nombre">Email</string>
 </resources>

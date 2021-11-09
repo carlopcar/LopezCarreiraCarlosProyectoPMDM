@@ -47,6 +47,7 @@ class ListaPeliculasAdapter (val peliculas: List<Pelicula> ,val context: Context
 
         holder.cvLista.setOnClickListener{
             val intent = Intent(context, DetallePeliculaActivity::class.java)
+            intent.putExtra("pelicula",pelicula)
             context.startActivity(intent)
         }
     }

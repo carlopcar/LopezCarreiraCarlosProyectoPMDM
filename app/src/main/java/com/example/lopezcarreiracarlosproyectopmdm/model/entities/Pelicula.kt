@@ -1,5 +1,7 @@
 package com.example.lopezcarreiracarlosproyectopmdm.model.entities
 
+import java.io.Serializable
+
 class Pelicula (
     var id:Long,
     var titulo: String,
@@ -13,7 +15,7 @@ class Pelicula (
     var fotografia:String,
     var pais:String,
     var descripcion:String
-    ){
+    ):Serializable{
 
 
 
