@@ -11,7 +11,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
             "Roman Polanski",
             "Drama",
             "8.2",
-            "https://pics.filmaffinity.com/the_pianist_le_pianiste-978132965-large.jpg",
+            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mxfLOWnHnSlbdraKfzRn5mqoqk7.jpg",
             "2002",
             "148'",
             "Wojciech Kilar",
@@ -27,9 +27,9 @@ class PeliculasDaoMockImpl : PeliculasDao {
             0,
             "Intouchables",
             "Olivier Nakache, Eric Toledano",
-            "Cmedia / Drama",
+            "Comedia / Drama",
             "8.0",
-            "https://pics.filmaffinity.com/intouchables-218166359-large.jpg",
+            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/edPWyHqknFuxFY3sdmC3LtJITWC.jpg",
             "2011",
             "109'",
             "Ludovico Einaudi",
@@ -50,7 +50,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
             "Tim Burton",
             "Drama",
             "7.9",
-            "https://pics.filmaffinity.com/big_fish-838287233-large.jpg",
+            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/m4gYCeV4GfGDw4PpMgU9kFIaNxP.jpg",
             "2003",
             "126'",
             "Daanny Elfman",
@@ -71,7 +71,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
             "Guy Ritchie",
             "Comedia Negra",
             "7.9",
-            "https://pics.filmaffinity.com/snatch-921179475-large.jpg",
+            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oNtArC5z3Z806aE19zePo6wJZN3.jpg",
             "2000",
             "104'",
             "John Murphy",
@@ -92,7 +92,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
             "Park Chan-wook",
             "Triller / Intriga",
             "7.9",
-            "https://pics.filmaffinity.com/oldboy-520509097-large.jpg",
+            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xF14Liu2qQgagvAMK6l1UL1MKb8.jpg",
             "2003",
             "120'",
             "Jo Yeong-wook",
@@ -102,6 +102,28 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     " confinado durante años en una celda en la que sólo hay una televisión." +
                     " Y, sin embargo, ignora por qué razón está allí... Segunda parte de la" +
                     " \"trilogía de la venganza\" de Park Chan-wook."
+        ),
+        Pelicula(
+            0,
+            "The Silence of the Lambs",
+            "Jonathan Demme",
+            "Triller / Intriga",
+            "8.2",
+            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8FdQQ3cUCs9goEOr1qUFaHackoJ.jpg",
+            "1991",
+            "115'",
+            "Howard Shore",
+            "Tak Fujimoto",
+            "Estados Unidos",
+            "El FBI busca a \"Buffalo Bill\", un asesino en serie que mata a sus víctimas," +
+                    " todas adolescentes, después de prepararlas minuciosamente y arrancarles la" +
+                    " piel. Para poder atraparlo recurren a Clarice Starling, una brillante" +
+                    " licenciada universitaria, experta en conductas psicópatas, que aspira" +
+                    " a formar parte del FBI. Siguiendo las instrucciones de su jefe, Jack Crawford," +
+                    " Clarice visita la cárcel de alta seguridad donde el gobierno mantiene " +
+                    "encerrado al Dr. Hannibal Lecter, antiguo psicoanalista y asesino, dotado de " +
+                    "una inteligencia superior a la normal. Su misión será intentar sacarle " +
+                    "información sobre los patrones de conducta del asesino que están buscando."
         )
     )
 

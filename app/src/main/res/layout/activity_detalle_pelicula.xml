@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="@dimen/margen_pantalla_default_horizontal"
     android:paddingVertical="@dimen/margen_pantalla_default_vertical"
+    android:background="@color/fondo_azul"
     tools:context=".activities.DetallePeliculaActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -40,6 +41,7 @@
         android:id="@+id/ivPelicula"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,13 +50,16 @@
 
     <TextView
         android:id="@+id/tvDTitulo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="TextView"
+        android:textSize="20sp"
+        android:textColor="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="titulo"/>
 
     <TextView
         android:id="@+id/tvDDirector"
@@ -62,9 +67,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="TextView"
+        android:textColor="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/tvDTitulo" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDTitulo"
+        tools:text="director"/>
 
     <TextView
         android:id="@+id/tvDGenero"
@@ -72,9 +79,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="TextView"
+        android:textColor="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/tvDDirector" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDDirector"
+        tools:text="genero"/>
 
     <TextView
         android:id="@+id/tvDAno"
@@ -82,9 +91,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="TextView"
+        android:textColor="@color/primaryTextColor"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        tools:text="ano"/>
 
     <TextView
         android:id="@+id/tvDDuracion"
@@ -92,19 +103,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="TextView"
+        android:textColor="@color/primaryTextColor"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDAno" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDAno"
+        tools:text="duracion"/>
 
     <TextView
         android:id="@+id/tvDMusica"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:text="TextView"
+        android:textColor="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+        app:layout_constraintTop_toTopOf="@+id/guideline6"
+        tools:text="musica"/>
 
     <TextView
         android:id="@+id/tvDFotografia"
@@ -112,9 +127,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="TextView"
+        android:textColor="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/tvDMusica" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDMusica"
+        tools:text="fotografia"/>
 
     <TextView
         android:id="@+id/tvDPais"
@@ -122,16 +139,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="TextView"
+        android:textColor="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/tvDFotografia" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDFotografia"
+        tools:text="pais"/>
 
     <TextView
         android:id="@+id/tvDDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="TextView"
+        android:textColor="@color/primaryTextColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+        app:layout_constraintTop_toTopOf="@+id/guideline8"
+        tools:text="descripcion"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

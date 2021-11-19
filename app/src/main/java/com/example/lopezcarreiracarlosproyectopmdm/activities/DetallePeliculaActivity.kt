@@ -28,7 +28,9 @@ class DetallePeliculaActivity : AppCompatActivity() {
         binding.tvDDuracion.text="Duración: " + pelicula.duracion
         binding.tvDMusica.text="Música: " + pelicula.musica
         binding.tvDFotografia.text="Fotografía: "+pelicula.fotografia
-        binding.tvDDescripcion.text="Sinopsis\n"+pelicula.descripcion
+        binding.tvDPais.text="País: "+pelicula.pais
+        binding.tvDDescripcion.text="Sinopsis: \n\n"+pelicula.descripcion
+
 
         Picasso.get().load(pelicula.url).into(binding.ivPelicula)
     }

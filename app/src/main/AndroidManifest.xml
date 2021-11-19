@@ -14,7 +14,8 @@
         <activity
             android:name=".activities.DetallePeliculaActivity"
             android:exported="true"
-            android:label="Detalles de la Pelicula">
+            android:screenOrientation="portrait"
+            android:label="Información de la Película">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.PeliculasActivity" />
@@ -22,14 +23,12 @@
         <activity
             android:name=".activities.PeliculasActivity"
             android:exported="true"
-            android:label="Listado de Peliculas">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.LoginActivity" />
-        </activity>
+            android:screenOrientation="portrait"
+            android:label="Listado de Peliculas"/>
         <activity
             android:name=".activities.RegistroUsuariosActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:label="Registro">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -38,7 +37,7 @@
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true"
-            android:label="Inicio de Sesión">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

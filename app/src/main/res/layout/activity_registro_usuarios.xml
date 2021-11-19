@@ -8,6 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@color/fondo_azul"
     tools:context=".activities.RegistroUsuariosActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -21,7 +22,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
         app:startIconDrawable="@drawable/ic_icons8_user_male_30"
-        app:startIconTint="@color/primaryColor"
+        app:startIconTint="@color/primaryLightColor"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +48,7 @@
 
         app:startIconDrawable="@android:drawable/ic_dialog_email"
         app:startIconContentDescription="@string/email"
-        app:startIconTint="@color/primaryColor"
+        app:startIconTint="@color/primaryLightColor"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +73,7 @@
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:startIconDrawable="@android:drawable/stat_sys_phone_call"
-        app:startIconTint="@color/primaryColor"
+        app:startIconTint="@color/primaryLightColor"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +99,7 @@
 
         app:startIconDrawable="@android:drawable/ic_lock_lock"
         app:startIconContentDescription="@string/password"
-        app:startIconTint="@color/primaryColor"
+        app:startIconTint="@color/primaryLightColor"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +125,7 @@
 
         app:startIconDrawable="@android:drawable/ic_lock_lock"
         app:startIconContentDescription="@string/password"
-        app:startIconTint="@color/primaryColor"
+        app:startIconTint="@color/primaryLightColor"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

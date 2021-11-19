@@ -3,6 +3,7 @@ package com.example.lopezcarreiracarlosproyectopmdm.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityLoginBinding
 import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
 
@@ -18,6 +19,10 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
+        setTitle("Inicio de Sesión")
 
         //Inicializamos las preferences
         preferences = Preferences(applicationContext)

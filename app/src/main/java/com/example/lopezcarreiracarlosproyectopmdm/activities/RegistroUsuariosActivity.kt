@@ -22,7 +22,7 @@ class RegistroUsuariosActivity : AppCompatActivity() {
         binding.btRegistrar.setOnClickListener{
 
             //SharedPreferences
-            comprobarDatos()
+
             if(comprobarDatos() == true){
                 val email = binding.etRegistroEmail.text.toString()
                 val psw = binding.etRegistroPsw.text.toString()
