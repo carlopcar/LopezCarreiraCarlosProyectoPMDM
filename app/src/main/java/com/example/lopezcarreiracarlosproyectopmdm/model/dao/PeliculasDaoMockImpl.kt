@@ -81,7 +81,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "a su jefe Avi, pero, antes de hacerlo, se deja convencer por un tal Boris para" +
                     " apostar en un combate ilegal de boxeo. En realidad, se trata de una trampa" +
                     " para arrebatarle el diamante. Cuando Avi se entera, contrata a Tony para" +
-                    "encontrar a Franky y al diamante. Descubierto el triste destino de Franky," +
+                    " encontrar a Franky y al diamante. Descubierto el triste destino de Franky," +
                     " la recuperación de la gema desaparecida provoca una situación caótica, " +
                     "donde el engaño, el chantaje y el fraude se mezclan de forma sangrienta" +
                     " con perros, diamantes, boxeadores y gran variedad de armas."
@@ -124,6 +124,25 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "encerrado al Dr. Hannibal Lecter, antiguo psicoanalista y asesino, dotado de " +
                     "una inteligencia superior a la normal. Su misión será intentar sacarle " +
                     "información sobre los patrones de conducta del asesino que están buscando."
+        ),
+        Pelicula(
+            0,
+            "Gladiator",
+            "Ridley Scott",
+            "Acción / Drama",
+            "8",
+            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4Ij6EoZuq4mKnByXj6i5YRqq4If.jpg",
+            "2000",
+            "150'",
+            "Hans Zimmer",
+            "John Mathieson",
+            "Estados Unidos",
+            "En el año 180, el Imperio Romano domina todo el mundo conocido. Tras una" +
+                    " gran victoria sobre los bárbaros del norte, el anciano emperador Marco" +
+                    " Aurelio (Richard Harris) decide transferir el poder a Máximo (Russell Crowe)," +
+                    " bravo general de sus ejércitos y hombre de inquebrantable lealtad al imperio." +
+                    " Pero su hijo Cómodo (Joaquin Phoenix), que aspiraba al trono, no lo acepta y" +
+                    " trata de asesinar a Máximo."
         )
     )
 

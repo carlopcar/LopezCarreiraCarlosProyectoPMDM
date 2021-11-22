@@ -14,8 +14,7 @@
         <activity
             android:name=".activities.DetallePeliculaActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:label="Información de la Película">
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.PeliculasActivity" />

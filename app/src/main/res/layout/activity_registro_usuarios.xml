@@ -7,7 +7,7 @@
     android:id="@+id/clRegistroActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/padding_app"
     android:background="@color/fondo_azul"
     tools:context=".activities.RegistroUsuariosActivity">
 
@@ -15,9 +15,9 @@
         android:id="@+id/tilRegistroNombreUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginTop="@dimen/margen_top_til"
+        android:layout_marginStart="@dimen/margen_izquierdo_til"
+        android:layout_marginEnd="@dimen/margen_derecho_til"
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
@@ -40,9 +40,9 @@
         android:id="@+id/tilRegistroEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginTop="@dimen/margen_top_form"
+        android:layout_marginStart="@dimen/margen_izquierdo_til"
+        android:layout_marginEnd="@dimen/margen_derecho_til"
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
@@ -58,7 +58,7 @@
             android:id="@+id/etRegistroEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="E-mail"
+            android:hint="@string/hint_introducir_email"
             android:inputType="textEmailAddress"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,9 +66,9 @@
         android:id="@+id/tilTelefono"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginStart="@dimen/margen_izquierdo_til"
+        android:layout_marginTop="@dimen/margen_top_form"
+        android:layout_marginEnd="@dimen/margen_derecho_til"
 
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -91,9 +91,9 @@
         android:id="@+id/tilRegistroPsw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginTop="@dimen/margen_top_form"
+        android:layout_marginStart="@dimen/margen_izquierdo_til"
+        android:layout_marginEnd="@dimen/margen_derecho_til"
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
@@ -117,9 +117,9 @@
         android:id="@+id/tilRegistroRepPsw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginTop="@dimen/margen_top_form"
+        android:layout_marginStart="@dimen/margen_izquierdo_til"
+        android:layout_marginEnd="@dimen/margen_derecho_til"
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
@@ -143,10 +143,10 @@
         android:id="@+id/btRegistrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:text="Registrarme"
+        android:layout_marginTop="@dimen/margen_top_til"
+        android:layout_marginStart="@dimen/margen_izquierdo_til"
+        android:layout_marginEnd="@dimen/margen_derecho_til"
+        android:text="@string/hint_bt_registrarse"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

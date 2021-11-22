@@ -2,7 +2,13 @@
 <resources>
     <dimen name="margen_pantalla_default_horizontal">16dp</dimen>
     <dimen name="margen_pantalla_default_vertical">16dp</dimen>
+    <dimen name="padding_app">16dp</dimen>
     <dimen name="imagen_lista_peliculas">100dp</dimen>
     <dimen name="margen_izquierdo_til">50dp</dimen>
     <dimen name="margen_derecho_til">50dp</dimen>
+    <dimen name="margen_top_til">50dp</dimen>
+    <dimen name="margen_top_login_botones">10dp</dimen>
+    <dimen name="margen_top_form">30dp</dimen>
+    <dimen name="margen_top_item">10dp</dimen>
+
 </resources>

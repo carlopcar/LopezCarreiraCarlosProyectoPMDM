@@ -6,7 +6,7 @@
     android:id="@+id/clLoginActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/padding_app"
     android:background="@color/fondo_azul"
     tools:context=".activities.LoginActivity">
 
@@ -41,14 +41,25 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.75" />
 
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/hint_descripcion_imagen"
+        app:layout_constraintBottom_toTopOf="@+id/gdhorizontal25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilLoginEmail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_marginStart="@dimen/margen_izquierdo_til"
 
-        android:layout_marginRight="50dp"
+        android:layout_marginEnd="@dimen/margen_derecho_til"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +73,7 @@
             android:id="@+id/etLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_introducir_nombre"
+            android:hint="@string/hint_introducir_email"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,9 +81,9 @@
         android:id="@+id/tilLoginPsw"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margen_izquierdo_til"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="@dimen/margen_derecho_til"
+        android:layout_marginStart="@dimen/margen_izquierdo_til"
+        android:layout_marginTop="@dimen/margen_top_til"
+        android:layout_marginEnd="@dimen/margen_derecho_til"
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
@@ -88,7 +99,7 @@
             android:id="@+id/etLoginPsw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contraseña"
+            android:hint="@string/hint_introducir_contraseña"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="ACCEDER"
+        android:text="@string/hint_bt_acceder"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -107,7 +118,7 @@
             android:id="@+id/tvLoginO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/margen_top_login_botones"
             android:text="o"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,20 +128,10 @@
             android:id="@+id/tvLoginRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Registrarse"
+            android:layout_marginTop="@dimen/margen_top_login_botones"
+            android:text="@string/hint_bt_registrarse"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvLoginO" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/gdhorizontal25"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

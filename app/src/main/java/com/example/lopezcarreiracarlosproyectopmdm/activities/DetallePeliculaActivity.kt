@@ -21,7 +21,8 @@ class DetallePeliculaActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         pelicula = intent.extras?.get("pelicula") as Pelicula
-        binding.tvDTitulo.text = pelicula.titulo
+        setTitle(pelicula.titulo)
+
         binding.tvDDirector.text="Director: " +pelicula.director
         binding.tvDGenero.text="Género: " +pelicula.genero
         binding.tvDAno.text="Año del estreno: " +pelicula.ano

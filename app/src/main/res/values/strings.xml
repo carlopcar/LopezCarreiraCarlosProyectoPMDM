@@ -2,5 +2,9 @@
     <string name="app_name">FrikiFilm</string>
     <string name="email">mi@extensión.com</string>
     <string name="password">Contraseña valida: entre 8 y 16 caracteres</string>
-    <string name="hint_introducir_nombre">Email</string>
+    <string name="hint_introducir_email">E-mail</string>
+    <string name="hint_introducir_contraseña">Contraseña</string>
+    <string name="hint_descripcion_imagen">Imagen</string>
+    <string name="hint_bt_acceder">ACCEDER</string>
+    <string name="hint_bt_registrarse">Registrarme</string>
 </resources>
