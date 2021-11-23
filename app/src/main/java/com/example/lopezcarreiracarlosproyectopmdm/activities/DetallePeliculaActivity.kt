@@ -2,6 +2,9 @@ package com.example.lopezcarreiracarlosproyectopmdm.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import com.example.lopezcarreiracarlosproyectopmdm.R
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityDetallePeliculaBinding
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityLoginBinding
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
@@ -34,5 +37,24 @@ class DetallePeliculaActivity : AppCompatActivity() {
 
 
         Picasso.get().load(pelicula.url).into(binding.ivPelicula)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_detalle_peliculas,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId){
+            R.id.action_save_or_update -> {
+                return false
+            }
+
+            R.id.action_delete -> {
+                return false
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

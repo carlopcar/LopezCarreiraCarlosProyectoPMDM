@@ -10,8 +10,8 @@ class Preferences(val context: Context) {
 
     fun guardar(email: String, psw: String) {
 
-        preferences.edit().putString("email", email).commit()
-        preferences.edit().putString("psw", psw).commit()
+        preferences.edit().putString("email", email.trim()).commit()
+        preferences.edit().putString("psw", psw.trim()).commit()
 
     }
 

@@ -143,6 +143,25 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     " bravo general de sus ejércitos y hombre de inquebrantable lealtad al imperio." +
                     " Pero su hijo Cómodo (Joaquin Phoenix), que aspiraba al trono, no lo acepta y" +
                     " trata de asesinar a Máximo."
+        ),
+        Pelicula(
+            0,
+            "Gladiator",
+            "Ridley Scott",
+            "Acción / Drama",
+            "8",
+            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4Ij6EoZuq4mKnByXj6i5YRqq4If.jpg",
+            "2000",
+            "150'",
+            "Hans Zimmer",
+            "John Mathieson",
+            "Estados Unidos",
+            "En el año 180, el Imperio Romano domina todo el mundo conocido. Tras una" +
+                    " gran victoria sobre los bárbaros del norte, el anciano emperador Marco" +
+                    " Aurelio (Richard Harris) decide transferir el poder a Máximo (Russell Crowe)," +
+                    " bravo general de sus ejércitos y hombre de inquebrantable lealtad al imperio." +
+                    " Pero su hijo Cómodo (Joaquin Phoenix), que aspiraba al trono, no lo acepta y" +
+                    " trata de asesinar a Máximo."
         )
     )
 

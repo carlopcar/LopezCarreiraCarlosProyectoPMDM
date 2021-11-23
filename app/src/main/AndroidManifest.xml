@@ -5,12 +5,18 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LopezCarreiraCarlosProyectoPMDM">
+        <activity
+            android:name=".activities.EditarActivity"
+            android:exported="true"
+            android:label="Editor"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.DetallePeliculaActivity"
             android:exported="true"
@@ -22,13 +28,13 @@
         <activity
             android:name=".activities.PeliculasActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:label="Listado de Peliculas"/>
+            android:label="Listado de Peliculas"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.RegistroUsuariosActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:label="Registro">
+            android:label="Registro"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.LoginActivity" />

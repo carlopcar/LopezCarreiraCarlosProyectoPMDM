@@ -36,9 +36,9 @@ class LoginActivity : AppCompatActivity() {
             val email = preferences.recuperarDatos("email")
             val psw = preferences.recuperarDatos("psw")
 
-            if (!email.equals(binding.etLoginEmail.text.toString())) {
+            if (!email.equals(binding.etLoginEmail.text.toString().trim())) {
                 binding.etLoginEmail.setError("El usuario no existe")
-            } else if (!psw.equals(binding.etLoginPsw.text.toString())) {
+            } else if (!psw.equals(binding.etLoginPsw.text.toString().trim())) {
                 binding.etLoginPsw.setError("La contraseña no es correcta")
             } else {
                 val intent = Intent(this, PeliculasActivity::class.java)
