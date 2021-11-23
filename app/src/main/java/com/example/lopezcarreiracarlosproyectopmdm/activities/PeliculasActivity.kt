@@ -1,5 +1,6 @@
 package com.example.lopezcarreiracarlosproyectopmdm.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,12 @@ class PeliculasActivity : AppCompatActivity() {
         //Asociamos el RecyclerView con sus componentes
         binding.rvListaPeliculas.adapter = adapter
         binding.rvListaPeliculas.layoutManager = layoutManager
+
+
+        binding.floatingActionButton.setOnClickListener {
+            val intent = Intent(this, EditarActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }

@@ -18,9 +18,9 @@ class Preferences(val context: Context) {
     fun recuperarDatos(datoARecuperar: String): String? {
 
         if (datoARecuperar == "email") {
-            return preferences.getString("email", "")
+            return preferences.getString("email", null)
         } else if (datoARecuperar == "psw") {
-            return preferences.getString("psw", "")
+            return preferences.getString("psw", null)
         }
         return null
     }
