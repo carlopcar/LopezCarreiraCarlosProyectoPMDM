@@ -1,12 +1,15 @@
 package com.example.lopezcarreiracarlosproyectopmdm.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import com.example.lopezcarreiracarlosproyectopmdm.App.Companion.peliculas
 import com.example.lopezcarreiracarlosproyectopmdm.R
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityDetallePeliculaBinding
-import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityLoginBinding
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
 import com.squareup.picasso.Picasso
 
@@ -26,13 +29,13 @@ class DetallePeliculaActivity : AppCompatActivity() {
         pelicula = intent.extras?.get("pelicula") as Pelicula
         setTitle(pelicula.titulo)
 
-        binding.tvDDirector.text="Director: " +pelicula.director
-        binding.tvDGenero.text="Género: " +pelicula.genero
-        binding.tvDAno.text="Año del estreno: " +pelicula.ano
-        binding.tvDDuracion.text="Duración: " + pelicula.duracion
-        binding.tvDMusica.text="Música: " + pelicula.musica
-        binding.tvDFotografia.text="Fotografía: "+pelicula.fotografia
-        binding.tvDPais.text="País: "+pelicula.pais
+        binding.tvDDirector.text="Director: \n" +pelicula.director
+        binding.tvDGenero.text="Género: \n" +pelicula.genero
+        binding.tvDAno.text="Año del estreno: \n" +pelicula.ano
+        binding.tvDDuracion.text="Duración: \n" + pelicula.duracion
+        binding.tvDMusica.text="Dirección Musical: \n" + pelicula.musica
+        binding.tvDFotografia.text="Fotografía: \n"+pelicula.fotografia
+        binding.tvDPais.text="País: \n"+pelicula.pais
         binding.tvDDescripcion.text="Sinopsis: \n\n"+pelicula.descripcion
 
 
@@ -45,13 +48,33 @@ class DetallePeliculaActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
         return when (item.itemId){
+
             R.id.accion_editar -> {
-                return false
+
+                val intent = Intent(this,EditarActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this, "Editar película", Toast.LENGTH_SHORT).show()
+
+                return true
             }
 
             R.id.accion_borrar -> {
-                return false
+
+                val builder = AlertDialog.Builder(this)
+                val dialog = builder.setTitle("Borrar película").setMessage("Una vez eliminada no " +
+                        "hay vuelta atrás, ¿Estás seguro?")
+                    .setPositiveButton("Aceptar" , {dialog,id -> finish()})
+                    .setNegativeButton("Candelar" , null).create()
+
+                dialog.show()
+
+                //peliculas.remove(pelicula)
+
+                Toast.makeText(this, "Película eliminada", Toast.LENGTH_SHORT).show()
+
+                return true
             }
 
             else -> super.onOptionsItemSelected(item)

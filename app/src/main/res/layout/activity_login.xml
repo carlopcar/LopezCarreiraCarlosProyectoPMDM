@@ -44,13 +44,13 @@
     <ImageView
         android:id="@+id/ivLogo"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/hint_descripcion_imagen"
+        android:layout_height="0dp"
+        android:contentDescription="@string/hint_imagen"
         app:layout_constraintBottom_toTopOf="@+id/gdhorizontal25"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/ic_logo_app"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilLoginEmail"
@@ -58,14 +58,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margen_izquierdo_til"
-
         android:layout_marginEnd="@dimen/margen_derecho_til"
+        android:layout_marginTop="@dimen/margen_top_til"
+
+        android:textColorHint="@color/black"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/gdhorizontal25"
 
-        app:startIconContentDescription="@string/email"
         app:startIconDrawable="@android:drawable/ic_dialog_email"
         app:startIconTint="@color/primaryLightColor">
 
@@ -73,7 +74,7 @@
             android:id="@+id/etLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_introducir_email"
+            android:hint="@string/hint_email"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,16 +83,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margen_izquierdo_til"
-        android:layout_marginTop="@dimen/margen_top_til"
+        android:layout_marginTop="@dimen/margen_top_til_login"
         android:layout_marginEnd="@dimen/margen_derecho_til"
 
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/primaryLightColor"
 
+        android:textColorHint="@color/black"
+
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
         app:startIconDrawable="@android:drawable/ic_lock_lock"
-        app:startIconContentDescription="@string/password"
         app:startIconTint="@color/primaryLightColor"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +104,7 @@
             android:id="@+id/etLoginPsw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_introducir_contraseña"
+            android:hint="@string/hint_contraseña"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,8 +112,8 @@
         android:id="@+id/btLoginAcceder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="@string/hint_bt_acceder"
+        android:layout_marginTop="@dimen/margen_top_btLoginRegistro"
+        android:text="@string/hint_acceder"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,8 +123,9 @@
             android:id="@+id/tvLoginO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margen_top_login_botones"
-            android:text="o"
+            android:layout_marginTop="@dimen/margen_top_default"
+            android:text="@string/hint_o_login"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btLoginAcceder" />
@@ -131,8 +134,8 @@
             android:id="@+id/tvLoginRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margen_top_login_botones"
-            android:text="@string/hint_bt_registrarse"
+            android:layout_marginTop="@dimen/margen_top_default"
+            android:text="@string/hint_registrarse"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

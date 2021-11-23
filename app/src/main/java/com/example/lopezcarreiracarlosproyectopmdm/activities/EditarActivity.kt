@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.example.lopezcarreiracarlosproyectopmdm.R
+import com.example.lopezcarreiracarlosproyectopmdm.activities.DetallePeliculaActivity.Companion.pelicula
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityEditarBinding
+import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
 
 class EditarActivity : AppCompatActivity() {
 
@@ -15,6 +17,20 @@ class EditarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEditarBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //pelicula = intent.extras?.get("pelicula") as Pelicula
+
+        //binding.tiedTitulo.setText(pelicula.titulo)
+        //binding.tiedDirector.setText(pelicula.director)
+        //binding.tiedGenero.setText(pelicula.genero)
+        //binding.tiedNota.setText(pelicula.nota)
+        //binding.tiedAno.setText(pelicula.ano)
+        //binding.tiedDuracion.setText(pelicula.duracion)
+        //binding.tiedMusica.setText(pelicula.musica)
+        //binding.tiedFoto.setText(pelicula.fotografia)
+        //binding.tiedPais.setText(pelicula.pais)
+        //binding.tiedDesc.setText(pelicula.descripcion)
+        //binding.tiedImagen.setText(pelicula.url)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

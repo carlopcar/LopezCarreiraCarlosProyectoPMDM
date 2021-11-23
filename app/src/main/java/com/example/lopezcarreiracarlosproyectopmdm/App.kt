@@ -7,7 +7,7 @@ import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
 class App: Application() {
 
     companion object{
-        var peliculas: List <Pelicula> = ArrayList()
+        var peliculas: ArrayList <Pelicula> = ArrayList()
     }
 
     override fun onCreate() {

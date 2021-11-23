@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    //Dimensiones comunes en la app
     <dimen name="margen_pantalla_default_horizontal">16dp</dimen>
     <dimen name="margen_pantalla_default_vertical">16dp</dimen>
     <dimen name="padding_app">16dp</dimen>
-    <dimen name="imagen_lista_peliculas">100dp</dimen>
+
+    //Dimensiones TextImputLayout app
+    <dimen name="margen_top_til">30dp</dimen>
     <dimen name="margen_izquierdo_til">50dp</dimen>
     <dimen name="margen_derecho_til">50dp</dimen>
-    <dimen name="margen_top_til">50dp</dimen>
-    <dimen name="margen_top_login_botones">10dp</dimen>
+
+
+    //Margenes
+    <dimen name="margen_top_default">10dp</dimen>
+    <dimen name="margen_top_til_login">50dp</dimen>
+    <dimen name="margen_top_btLoginRegistro">80dp</dimen>
     <dimen name="margen_top_form">30dp</dimen>
-    <dimen name="margen_top_item">10dp</dimen>
+    <dimen name="margen_derecho_iDetalle">16dp</dimen>
+
+    <dimen name="imagen_lista_peliculas">100dp</dimen>
+
+
 
 </resources>

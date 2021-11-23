@@ -31,7 +31,7 @@ class PeliculasActivity : AppCompatActivity() {
         binding.rvListaPeliculas.layoutManager = layoutManager
 
 
-        binding.floatingActionButton.setOnClickListener {
+        binding.fabAnadir.setOnClickListener {
             val intent = Intent(this, EditarActivity::class.java)
             startActivity(intent)
         }

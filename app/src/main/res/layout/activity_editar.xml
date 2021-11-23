@@ -17,9 +17,10 @@
             android:id="@+id/tilTitulo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margen_top_form"
+            android:layout_marginTop="@dimen/margen_top_til"
             android:layout_marginStart="@dimen/margen_izquierdo_til"
             android:layout_marginEnd="@dimen/margen_derecho_til"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +30,7 @@
                 android:id="@+id/tiedTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Titulo"
+                android:hint="@string/hint_titulo"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,8 +39,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margen_izquierdo_til"
-            android:layout_marginTop="@dimen/margen_top_form"
+            android:layout_marginTop="@dimen/margen_top_til"
             android:layout_marginEnd="@dimen/margen_derecho_til"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +51,7 @@
                 android:id="@+id/tiedDirector"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Director"
+                android:hint="@string/hint_director"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,8 +60,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margen_izquierdo_til"
-            android:layout_marginTop="@dimen/margen_top_form"
+            android:layout_marginTop="@dimen/margen_top_til"
             android:layout_marginEnd="@dimen/margen_derecho_til"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +72,7 @@
                 android:id="@+id/tiedGenero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Género"
+                android:hint="@string/hint_genero"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,8 +81,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margen_izquierdo_til"
-            android:layout_marginTop="@dimen/margen_top_form"
+            android:layout_marginTop="@dimen/margen_top_til"
             android:layout_marginEnd="@dimen/margen_derecho_til"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +93,7 @@
                 android:id="@+id/tiedNota"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nota"
+                android:hint="@string/hint_nota"
                 android:inputType="numberDecimal"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,8 +102,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margen_izquierdo_til"
-            android:layout_marginTop="@dimen/margen_top_form"
+            android:layout_marginTop="@dimen/margen_top_til"
             android:layout_marginEnd="@dimen/margen_derecho_til"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +114,7 @@
                 android:id="@+id/tiedAno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Año del estreno"
+                android:hint="@string/hint_ano"
                 android:inputType="number"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,8 +123,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margen_izquierdo_til"
-            android:layout_marginTop="@dimen/margen_top_form"
+            android:layout_marginTop="@dimen/margen_top_til"
             android:layout_marginEnd="@dimen/margen_derecho_til"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -129,7 +135,7 @@
                 android:id="@+id/tiedDuracion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Duración (EJ: 100')"
+                android:hint="@string/hint_duracion"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -138,8 +144,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margen_izquierdo_til"
-            android:layout_marginTop="@dimen/margen_top_form"
+            android:layout_marginTop="@dimen/margen_top_til"
             android:layout_marginEnd="@dimen/margen_derecho_til"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -149,7 +156,7 @@
                 android:id="@+id/tiedMusica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Dirección Musical"
+                android:hint="@string/hint_musica"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -158,8 +165,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margen_izquierdo_til"
-            android:layout_marginTop="@dimen/margen_top_form"
+            android:layout_marginTop="@dimen/margen_top_til"
             android:layout_marginEnd="@dimen/margen_derecho_til"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -169,7 +177,7 @@
                 android:id="@+id/tiedFoto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Dirección de fotografía"
+                android:hint="@string/hint_fotografia"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -178,8 +186,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margen_izquierdo_til"
-            android:layout_marginTop="@dimen/margen_top_form"
+            android:layout_marginTop="@dimen/margen_top_til"
             android:layout_marginEnd="@dimen/margen_derecho_til"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -189,7 +198,7 @@
                 android:id="@+id/tiedPais"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="País"
+                android:hint="@string/hint_pais"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -198,8 +207,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margen_izquierdo_til"
-            android:layout_marginTop="@dimen/margen_top_form"
+            android:layout_marginTop="@dimen/margen_top_til"
             android:layout_marginEnd="@dimen/margen_derecho_til"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -209,7 +219,7 @@
                 android:id="@+id/tiedDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Sinopsis"
+                android:hint="@string/hint_sinopsis"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -218,8 +228,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margen_izquierdo_til"
-            android:layout_marginTop="@dimen/margen_top_form"
+            android:layout_marginTop="@dimen/margen_top_til"
             android:layout_marginEnd="@dimen/margen_derecho_til"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -229,7 +240,7 @@
                 android:id="@+id/tiedImagen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Url de la carátula deseada"
+                android:hint="@string/hint_url"
                 android:inputType="textUri"/>
         </com.google.android.material.textfield.TextInputLayout>
 
