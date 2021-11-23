@@ -3,18 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/accion_editar"
+        android:id="@+id/accion_guardar"
         android:orderInCategory="300"
-        android:icon="@drawable/ic_baseline_edit_24"
+        android:icon="@drawable/ic_baseline_save_alt_24"
         android:title="Guardar"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/accion_borrar"
+        android:id="@+id/accion_cancelar"
         android:orderInCategory="300"
-        android:icon="@drawable/ic_baseline_delete_outline_24"
+        android:icon="@drawable/ic_baseline_cancel_24"
         android:title="Eliminar"
         app:showAsAction="ifRoom"/>
-
 
 </menu>

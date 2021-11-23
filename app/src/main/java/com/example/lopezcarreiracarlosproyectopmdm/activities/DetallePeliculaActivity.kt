@@ -46,11 +46,11 @@ class DetallePeliculaActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
-            R.id.action_save_or_update -> {
+            R.id.accion_editar -> {
                 return false
             }
 
-            R.id.action_delete -> {
+            R.id.accion_borrar -> {
                 return false
             }
 

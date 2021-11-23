@@ -6,5 +6,5 @@
     <string name="hint_introducir_contraseña">Contraseña</string>
     <string name="hint_descripcion_imagen">Imagen</string>
     <string name="hint_bt_acceder">ACCEDER</string>
-    <string name="hint_bt_registrarse">Registrarme</string>
+    <string name="hint_bt_registrarse"><u>Registrarme</u></string>
 </resources>

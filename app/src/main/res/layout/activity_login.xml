@@ -85,6 +85,9 @@
         android:layout_marginTop="@dimen/margen_top_til"
         android:layout_marginEnd="@dimen/margen_derecho_til"
 
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/primaryLightColor"
+
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
         app:startIconDrawable="@android:drawable/ic_lock_lock"
@@ -130,6 +133,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margen_top_login_botones"
             android:text="@string/hint_bt_registrarse"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvLoginO" />
