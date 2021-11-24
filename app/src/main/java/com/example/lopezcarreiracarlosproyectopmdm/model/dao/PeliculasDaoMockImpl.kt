@@ -4,9 +4,10 @@ import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
 
 class PeliculasDaoMockImpl : PeliculasDao {
 
-    val lista = ArrayList<Pelicula>()
+
 
     override fun getTodos(): ArrayList<Pelicula> {
+        val lista = ArrayList<Pelicula>()
         lista.addAll(
             listOf(
                 Pelicula(

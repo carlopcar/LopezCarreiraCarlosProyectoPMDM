@@ -45,6 +45,10 @@ class PeliculasActivity : AppCompatActivity() {
         super.onResume()
         val adapter = ListaPeliculasAdapter(peliculas ,this)
         binding.rvListaPeliculas.adapter = adapter
+
+//        binding.rvListaPeliculas.adapter?.notifyItemChanged()
+
+
         Log.d("On RESUME","llego")
     }
 }

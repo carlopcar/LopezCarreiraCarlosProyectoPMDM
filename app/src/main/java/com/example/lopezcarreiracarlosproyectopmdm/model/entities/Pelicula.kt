@@ -2,7 +2,7 @@ package com.example.lopezcarreiracarlosproyectopmdm.model.entities
 
 import java.io.Serializable
 
-class Pelicula (
+data class Pelicula (
     var id:Long,
     var titulo: String,
     var director: String,

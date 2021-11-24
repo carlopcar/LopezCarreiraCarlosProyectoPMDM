@@ -4,10 +4,10 @@ import android.app.Application
 import com.example.lopezcarreiracarlosproyectopmdm.model.dao.PeliculasDaoMockImpl
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
 
-class App: Application() {
+class App : Application() {
 
     companion object{
-        var peliculas: ArrayList <Pelicula> = ArrayList()
+        lateinit var peliculas: ArrayList <Pelicula>
     }
 
     override fun onCreate() {

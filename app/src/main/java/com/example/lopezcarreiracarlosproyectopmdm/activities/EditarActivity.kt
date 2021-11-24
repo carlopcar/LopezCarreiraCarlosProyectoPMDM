@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.example.lopezcarreiracarlosproyectopmdm.R
-import com.example.lopezcarreiracarlosproyectopmdm.activities.DetallePeliculaActivity.Companion.pelicula
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityEditarBinding
-import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
 
 class EditarActivity : AppCompatActivity() {
 

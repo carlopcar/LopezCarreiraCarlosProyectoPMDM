@@ -15,11 +15,9 @@ import com.squareup.picasso.Picasso
 
 class DetallePeliculaActivity : AppCompatActivity() {
 
-    companion object{
-        lateinit var pelicula: Pelicula
-    }
-
     private lateinit var binding: ActivityDetallePeliculaBinding
+    private lateinit var pelicula: Pelicula
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -29,31 +27,34 @@ class DetallePeliculaActivity : AppCompatActivity() {
         pelicula = intent.extras?.get("pelicula") as Pelicula
         setTitle(pelicula.titulo)
 
-        binding.tvDDirector.text="Director: \n" +pelicula.director
-        binding.tvDGenero.text="Género: \n" +pelicula.genero
-        binding.tvDAno.text="Año del estreno: \n" +pelicula.ano
-        binding.tvDDuracion.text="Duración: \n" + pelicula.duracion
-        binding.tvDMusica.text="Dirección Musical: \n" + pelicula.musica
-        binding.tvDFotografia.text="Fotografía: \n"+pelicula.fotografia
-        binding.tvDPais.text="País: \n"+pelicula.pais
-        binding.tvDDescripcion.text="Sinopsis: \n\n"+pelicula.descripcion
+        binding.tvDDirector.text = "Director: \n" + pelicula.director
+        binding.tvDGenero.text = "Género: \n" + pelicula.genero
+        binding.tvDAno.text = "Año del estreno: \n" + pelicula.ano
+        binding.tvDDuracion.text = "Duración: \n" + pelicula.duracion
+        binding.tvDMusica.text = "Dirección Musical: \n" + pelicula.musica
+        binding.tvDFotografia.text = "Fotografía: \n" + pelicula.fotografia
+        binding.tvDPais.text = "País: \n" + pelicula.pais
+        binding.tvDDescripcion.text = "Sinopsis: \n\n" + pelicula.descripcion
 
 
         Picasso.get().load(pelicula.url).into(binding.ivPelicula)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_detalle_peliculas,menu)
+        menuInflater.inflate(R.menu.menu_detalle_peliculas, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        return when (item.itemId){
+        return when (item.itemId) {
 
             R.id.accion_editar -> {
 
-                val intent = Intent(this,EditarActivity::class.java)
+                val intent = Intent(this, EditarActivity::class.java)
+
+
+
                 startActivity(intent)
                 Toast.makeText(this, "Editar película", Toast.LENGTH_SHORT).show()
 
@@ -63,15 +64,19 @@ class DetallePeliculaActivity : AppCompatActivity() {
             R.id.accion_borrar -> {
 
                 val builder = AlertDialog.Builder(this)
-                val dialog = builder.setTitle("Borrar película").setMessage("Una vez eliminada no " +
-                        "hay vuelta atrás, ¿Estás seguro?")
-                    .setPositiveButton("Aceptar" , {dialog,id ->
+                val dialog = builder.setTitle("Borrar película").setMessage(
+                    "Una vez eliminada no " +
+                            "hay vuelta atrás, ¿Estás seguro?"
+                )
+                    .setPositiveButton("Aceptar") { _, _ ->
                         peliculas.remove(pelicula)
                         Toast.makeText(this, "Película eliminada", Toast.LENGTH_SHORT).show()
-                        finish()})
-                    .setNegativeButton("Cancelar" , null).create()
+                        finish()
+                    }
+                    .setNegativeButton("Cancelar", null).create()
 
                 dialog.show()
+
 
                 return true
             }
