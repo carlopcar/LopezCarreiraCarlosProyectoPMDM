@@ -65,14 +65,13 @@ class DetallePeliculaActivity : AppCompatActivity() {
                 val builder = AlertDialog.Builder(this)
                 val dialog = builder.setTitle("Borrar película").setMessage("Una vez eliminada no " +
                         "hay vuelta atrás, ¿Estás seguro?")
-                    .setPositiveButton("Aceptar" , {dialog,id -> finish()})
-                    .setNegativeButton("Candelar" , null).create()
+                    .setPositiveButton("Aceptar" , {dialog,id ->
+                        peliculas.remove(pelicula)
+                        Toast.makeText(this, "Película eliminada", Toast.LENGTH_SHORT).show()
+                        finish()})
+                    .setNegativeButton("Cancelar" , null).create()
 
                 dialog.show()
-
-                //peliculas.remove(pelicula)
-
-                Toast.makeText(this, "Película eliminada", Toast.LENGTH_SHORT).show()
 
                 return true
             }

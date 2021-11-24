@@ -31,4 +31,9 @@
     <string name="hint_pais">País</string>
     <string name="hint_sinopsis">Sinopsis</string>
     <string name="hint_url">Url de la carátula deseada</string>
+
+    //Strings menus
+    <string name="hint_editar">Editar</string>
+    <string name="hint_guardar">Guardar</string>
+    <string name="hint_eliminar">Eliminar</string>
 </resources>

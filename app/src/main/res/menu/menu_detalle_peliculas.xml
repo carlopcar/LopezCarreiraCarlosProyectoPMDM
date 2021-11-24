@@ -6,14 +6,14 @@
         android:id="@+id/accion_editar"
         android:orderInCategory="300"
         android:icon="@drawable/ic_baseline_edit_24"
-        android:title="Guardar"
+        android:title="@string/hint_editar"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/accion_borrar"
         android:orderInCategory="300"
         android:icon="@drawable/ic_baseline_delete_outline_24"
-        android:title="Eliminar"
+        android:title="@string/hint_eliminar"
         app:showAsAction="ifRoom"/>
 
 

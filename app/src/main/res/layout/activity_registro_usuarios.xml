@@ -14,7 +14,7 @@
         android:id="@+id/tilRegistroNombreUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margen_top_til_login"
+        android:layout_marginTop="@dimen/margen_top_til"
         android:layout_marginStart="@dimen/margen_izquierdo_til"
         android:layout_marginEnd="@dimen/margen_derecho_til"
 

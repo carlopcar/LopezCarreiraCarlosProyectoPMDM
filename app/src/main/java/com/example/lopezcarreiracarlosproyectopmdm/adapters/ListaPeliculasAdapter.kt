@@ -11,7 +11,6 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lopezcarreiracarlosproyectopmdm.R
 import com.example.lopezcarreiracarlosproyectopmdm.activities.DetallePeliculaActivity
-import com.example.lopezcarreiracarlosproyectopmdm.activities.PeliculasActivity
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
 import com.squareup.picasso.Picasso
 
@@ -55,4 +54,5 @@ class ListaPeliculasAdapter (val peliculas: List<Pelicula> ,val context: Context
     override fun getItemCount(): Int {
         return peliculas.size
     }
+
 }
