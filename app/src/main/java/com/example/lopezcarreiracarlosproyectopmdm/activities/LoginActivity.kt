@@ -1,5 +1,6 @@
 package com.example.lopezcarreiracarlosproyectopmdm.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,9 +12,9 @@ import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-
     //Objeto compartido para poder leer la clase Preferences desde cualquier otra clase.
     companion object{
+        @SuppressLint("StaticFieldLeak")
         lateinit var preferences: Preferences
     }
 
@@ -22,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        setTitle("Inicio de Sesión")
+        title = "Inicio de Sesión"
 
         //Inicializamos las preferences
         preferences = Preferences(applicationContext)
@@ -37,9 +38,9 @@ class LoginActivity : AppCompatActivity() {
             val psw = preferences.recuperarDatos("psw")
 
             if (!email.equals(binding.etLoginEmail.text.toString().trim())) {
-                binding.etLoginEmail.setError("El usuario no existe")
+                binding.etLoginEmail.error = "El usuario no existe"
             } else if (!psw.equals(binding.etLoginPsw.text.toString().trim())) {
-                binding.etLoginPsw.setError("La contraseña no es correcta")
+                binding.etLoginPsw.error = "La contraseña no es correcta"
             } else {
                 val intent = Intent(this, PeliculasActivity::class.java)
                 startActivity(intent)

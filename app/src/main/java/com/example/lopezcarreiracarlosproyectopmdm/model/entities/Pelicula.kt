@@ -14,7 +14,8 @@ data class Pelicula (
     var musica:String,
     var fotografia:String,
     var pais:String,
-    var descripcion:String
+    var descripcion:String,
+    var numDirector:String
     ):Serializable{
 
 

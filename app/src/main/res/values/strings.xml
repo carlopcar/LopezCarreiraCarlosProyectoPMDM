@@ -32,6 +32,10 @@
     <string name="hint_sinopsis">Sinopsis</string>
     <string name="hint_url">Url de la carátula deseada</string>
 
+    //Strings detalle pelicula
+    <string name="hint_dir"><b>Director:</b></string>
+
+
     //Strings menus
     <string name="hint_editar">Editar</string>
     <string name="hint_guardar">Guardar</string>

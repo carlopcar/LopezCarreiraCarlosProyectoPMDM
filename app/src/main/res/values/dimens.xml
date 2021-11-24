@@ -10,6 +10,8 @@
     <dimen name="margen_top_til">30dp</dimen>
     <dimen name="margen_izquierdo_til">50dp</dimen>
     <dimen name="margen_derecho_til">50dp</dimen>
+    <dimen name="margen_izquierdo_til_editar">25dp</dimen>
+    <dimen name="margen_derecho_til_editar">25dp</dimen>
 
 
     //Margenes
@@ -19,6 +21,7 @@
     <dimen name="margen_top_form">30dp</dimen>
     <dimen name="margen_derecho_iDetalle">16dp</dimen>
 
+    //Tamaño alto y ancho imagenes.
     <dimen name="imagen_lista_peliculas">100dp</dimen>
 
 

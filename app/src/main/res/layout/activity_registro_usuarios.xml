@@ -155,7 +155,7 @@
         android:id="@+id/btRegistrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margen_top_btLoginRegistro"
+        android:layout_marginTop="@dimen/margen_top_til_login"
         android:layout_marginStart="@dimen/margen_izquierdo_til"
         android:layout_marginEnd="@dimen/margen_derecho_til"
         android:text="@string/hint_registrarme"

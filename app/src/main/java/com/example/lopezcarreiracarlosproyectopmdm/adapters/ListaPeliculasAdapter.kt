@@ -14,16 +14,17 @@ import com.example.lopezcarreiracarlosproyectopmdm.activities.DetallePeliculaAct
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
 import com.squareup.picasso.Picasso
 
-class ListaPeliculasAdapter (val peliculas: List<Pelicula> ,val context: Context) : RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>() {
+class ListaPeliculasAdapter (private val peliculas: List<Pelicula>, val context: Context) : RecyclerView.Adapter<ListaPeliculasAdapter.PeliculasViewHolder>() {
 
     //Adapter: tres métodos y clase ViewHolder
     class PeliculasViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
-        val tvTitulo = itemView.findViewById<TextView>(R.id.tvTitulo)
-        val tvDirector = itemView.findViewById<TextView>(R.id.tvDirector)
-        val tvGenero = itemView.findViewById<TextView>(R.id.tvGenero)
-        val tvNota = itemView.findViewById<TextView>(R.id.tvNota)
-        val ivFoto = itemView.findViewById<ImageView>(R.id.ivFoto)
-        val cvLista = itemView.findViewById<CardView>(R.id.cvLista)
+
+        val tvTitulo: TextView = itemView.findViewById<TextView>(R.id.tvTitulo)
+        val tvDirector: TextView = itemView.findViewById<TextView>(R.id.tvDirector)
+        val tvGenero: TextView = itemView.findViewById<TextView>(R.id.tvGenero)
+        val tvNota: TextView = itemView.findViewById<TextView>(R.id.tvNota)
+        val ivFoto: ImageView = itemView.findViewById<ImageView>(R.id.ivFoto)
+        val cvLista: CardView = itemView.findViewById<CardView>(R.id.cvLista)
 
     }
 
@@ -34,12 +35,12 @@ class ListaPeliculasAdapter (val peliculas: List<Pelicula> ,val context: Context
     }
 
     override fun onBindViewHolder(holder: PeliculasViewHolder, position: Int) {
-        val pelicula = peliculas.get(position)
+        val pelicula = peliculas[position]
 
-        holder.tvTitulo.setText(pelicula.titulo)
-        holder.tvDirector.setText(pelicula.director)
-        holder.tvGenero.setText(pelicula.genero)
-        holder.tvNota.setText(pelicula.nota)
+        holder.tvTitulo.text = pelicula.titulo
+        holder.tvDirector.text = pelicula.director
+        holder.tvGenero.text = pelicula.genero
+        holder.tvNota.text = pelicula.nota
 
         Picasso.get().load(pelicula.url).into(holder.ivFoto)
 

@@ -1,17 +1,18 @@
 package com.example.lopezcarreiracarlosproyectopmdm.model.dao
 
 import android.content.Context
+import android.content.SharedPreferences
 
 class Preferences(val context: Context) {
 
 
-    val archivoSP = "SharedPreferences"
-    val preferences = context.getSharedPreferences(archivoSP, 0)
+    private val archivoSP = "SharedPreferences"
+    private val preferences: SharedPreferences = context.getSharedPreferences(archivoSP, 0)
 
     fun guardar(email: String, psw: String) {
 
-        preferences.edit().putString("email", email.trim()).commit()
-        preferences.edit().putString("psw", psw.trim()).commit()
+        preferences.edit().putString("email", email.trim()).apply()
+        preferences.edit().putString("psw", psw.trim()).apply()
 
     }
 

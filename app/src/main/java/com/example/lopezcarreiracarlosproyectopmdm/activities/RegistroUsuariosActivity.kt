@@ -23,7 +23,7 @@ class RegistroUsuariosActivity : AppCompatActivity() {
 
             //SharedPreferences
 
-            if(comprobarDatos() == true){
+            if(comprobarDatos()){
                 val email = binding.etRegistroEmail.text.toString()
                 val psw = binding.etRegistroPsw.text.toString()
 
@@ -46,7 +46,7 @@ class RegistroUsuariosActivity : AppCompatActivity() {
         val psw = binding.etRegistroPsw.text.toString()
         val pswrep = binding.etRegistroRepPsw.text.toString()
 
-        if (validarEmail(binding.etRegistroEmail.text.toString()) == false) {
+        if (!validarEmail(binding.etRegistroEmail.text.toString())) {
             //Si el email es incorrecto
             //Mensaje de que el email es incorrecto
             Toast.makeText(this, "El email no es correcto", Toast.LENGTH_SHORT)
@@ -58,7 +58,7 @@ class RegistroUsuariosActivity : AppCompatActivity() {
             Toast.makeText(this, "La contraseña no tiene la longitud correcta", Toast.LENGTH_SHORT)
                 .show()
             return false
-        } else if (!psw.equals(pswrep)) {
+        } else if (psw != pswrep) {
             //Mensaje de que el email es incorrecto
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT)
                 .show()

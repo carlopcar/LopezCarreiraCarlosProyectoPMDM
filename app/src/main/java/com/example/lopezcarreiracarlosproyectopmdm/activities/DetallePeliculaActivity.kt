@@ -1,5 +1,6 @@
 package com.example.lopezcarreiracarlosproyectopmdm.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,7 @@ class DetallePeliculaActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetallePeliculaBinding
     private lateinit var pelicula: Pelicula
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -25,15 +27,15 @@ class DetallePeliculaActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         pelicula = intent.extras?.get("pelicula") as Pelicula
-        setTitle(pelicula.titulo)
 
-        binding.tvDDirector.text = "Director: \n" + pelicula.director
-        binding.tvDGenero.text = "Género: \n" + pelicula.genero
-        binding.tvDAno.text = "Año del estreno: \n" + pelicula.ano
-        binding.tvDDuracion.text = "Duración: \n" + pelicula.duracion
-        binding.tvDMusica.text = "Dirección Musical: \n" + pelicula.musica
-        binding.tvDFotografia.text = "Fotografía: \n" + pelicula.fotografia
-        binding.tvDPais.text = "País: \n" + pelicula.pais
+        title = pelicula.titulo
+        binding.tvDDirector.text = resources.getString(R.string.hint_dir) + pelicula.director
+        binding.tvDGenero.text = "Género: \n\n" + pelicula.genero
+        binding.tvDAno.text = "Año del estreno: \n\n" + pelicula.ano
+        binding.tvDDuracion.text = "Duración: \n\n" + pelicula.duracion
+        binding.tvDMusica.text = "Dirección Musical: \n\n" + pelicula.musica
+        binding.tvDFotografia.text = "Fotografía: \n\n" + pelicula.fotografia
+        binding.tvDPais.text = "País: \n\n" + pelicula.pais
         binding.tvDDescripcion.text = "Sinopsis: \n\n" + pelicula.descripcion
 
 
@@ -54,6 +56,7 @@ class DetallePeliculaActivity : AppCompatActivity() {
                 val intent = Intent(this, EditarActivity::class.java)
 
 
+                intent.putExtra("pelicula", pelicula)
 
                 startActivity(intent)
                 Toast.makeText(this, "Editar película", Toast.LENGTH_SHORT).show()
