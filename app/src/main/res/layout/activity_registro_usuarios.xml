@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clRegistroActivity"
@@ -9,6 +9,10 @@
     android:padding="@dimen/padding_app"
     android:background="@color/fondo_azul"
     tools:context=".activities.RegistroUsuariosActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilRegistroNombreUsuario"
@@ -155,7 +159,7 @@
         android:id="@+id/btRegistrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margen_top_til_login"
+        android:layout_marginTop="@dimen/margen_top_btLoginRegistro"
         android:layout_marginStart="@dimen/margen_izquierdo_til"
         android:layout_marginEnd="@dimen/margen_derecho_til"
         android:text="@string/hint_registrarme"
@@ -164,4 +168,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilRegistroRepPsw" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

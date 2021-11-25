@@ -2,8 +2,10 @@ package com.example.lopezcarreiracarlosproyectopmdm.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -29,7 +31,7 @@ class DetallePeliculaActivity : AppCompatActivity() {
         pelicula = intent.extras?.get("pelicula") as Pelicula
 
         title = pelicula.titulo
-        binding.tvDDirector.text = resources.getString(R.string.hint_dir) + pelicula.director
+        binding.tvDDirector.text = "Director: \n\n" + pelicula.director
         binding.tvDGenero.text = "Género: \n\n" + pelicula.genero
         binding.tvDAno.text = "Año del estreno: \n\n" + pelicula.ano
         binding.tvDDuracion.text = "Duración: \n\n" + pelicula.duracion
@@ -51,6 +53,27 @@ class DetallePeliculaActivity : AppCompatActivity() {
 
         return when (item.itemId) {
 
+            R.id.accion_llamar -> {
+
+                val builder = AlertDialog.Builder(this)
+                val dialog = builder.setTitle("LLamar al director").setMessage(
+                    "Estas a punto de llamar al director de la película, ¿Estás seguro?")
+                    .setPositiveButton("Aceptar") { _, _ ->
+                        val num: String = pelicula.numDirector
+                        if (!TextUtils.isEmpty(num)) {
+                            val dial = "tel:$num"
+                            startActivity(Intent(Intent.ACTION_DIAL, Uri.parse(dial)))
+                        } else {
+                            Toast.makeText(this, "Imposible realizar la llamada", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    .setNegativeButton("Cancelar", null).create()
+
+                dialog.show()
+
+                return true
+            }
+
             R.id.accion_editar -> {
 
                 val intent = Intent(this, EditarActivity::class.java)
@@ -68,9 +91,7 @@ class DetallePeliculaActivity : AppCompatActivity() {
 
                 val builder = AlertDialog.Builder(this)
                 val dialog = builder.setTitle("Borrar película").setMessage(
-                    "Una vez eliminada no " +
-                            "hay vuelta atrás, ¿Estás seguro?"
-                )
+                    "Una vez eliminada no hay vuelta atrás, ¿Estás seguro?")
                     .setPositiveButton("Aceptar") { _, _ ->
                         peliculas.remove(pelicula)
                         Toast.makeText(this, "Película eliminada", Toast.LENGTH_SHORT).show()

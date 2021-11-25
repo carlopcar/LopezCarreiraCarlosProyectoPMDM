@@ -1,6 +1,5 @@
 package com.example.lopezcarreiracarlosproyectopmdm.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -50,27 +49,55 @@ class EditarActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+
             R.id.accion_guardar -> {
 
                 val builder = AlertDialog.Builder(this)
-                val dialog = builder.setTitle("Actualizar película").setMessage(
+                val dialog = builder.setTitle("Actualizar películas").setMessage(
                     "¿Estás seguro de querer añadirla a tu lista?")
                     .setPositiveButton("Aceptar") { _, _ ->
-                        App.peliculas.remove(pelicula)
-                        App.peliculas.add(Pelicula(0,binding.tiedTitulo.text.toString()
-                            ,binding.tiedDirector.text.toString()
-                            ,binding.tiedGenero.text.toString()
-                            ,binding.tiedNota.text.toString()
-                            ,binding.tiedAno.text.toString()
-                            ,binding.tiedDuracion.text.toString()
-                            ,binding.tiedMusica.text.toString()
-                            ,binding.tiedFoto.text.toString()
-                            ,binding.tiedPais.text.toString()
-                            ,binding.tiedDesc.text.toString()
-                            ,binding.tiedImagen.text.toString()
-                            ,"+34627892520"))
-                        Toast.makeText(this, "Lista actulizada", Toast.LENGTH_SHORT).show()
-                        finish()
+                        if (pelicula == null) {
+                            App.peliculas.remove(pelicula)
+                            App.peliculas.add(
+                                Pelicula(
+                                    0,
+                                    binding.tiedTitulo.text.toString().trim(),
+                                    binding.tiedDirector.text.toString().trim(),
+                                    binding.tiedGenero.text.toString().trim(),
+                                    binding.tiedNota.text.toString().trim(),
+                                    binding.tiedAno.text.toString().trim(),
+                                    binding.tiedDuracion.text.toString().trim(),
+                                    binding.tiedMusica.text.toString().trim(),
+                                    binding.tiedFoto.text.toString().trim(),
+                                    binding.tiedPais.text.toString().trim(),
+                                    binding.tiedDesc.text.toString().trim(),
+                                    binding.tiedImagen.text.toString().trim(),
+                                    "+34627892520"
+                                )
+                            )
+                            Toast.makeText(this, "Lista actulizada", Toast.LENGTH_SHORT).show()
+                            finish()
+                        }else{
+                            App.peliculas.add(
+                                Pelicula(
+                                    0,
+                                    binding.tiedTitulo.text.toString().trim(),
+                                    binding.tiedDirector.text.toString().trim(),
+                                    binding.tiedGenero.text.toString().trim(),
+                                    binding.tiedNota.text.toString().trim(),
+                                    binding.tiedAno.text.toString().trim(),
+                                    binding.tiedDuracion.text.toString().trim(),
+                                    binding.tiedMusica.text.toString().trim(),
+                                    binding.tiedFoto.text.toString().trim(),
+                                    binding.tiedPais.text.toString().trim(),
+                                    binding.tiedDesc.text.toString().trim(),
+                                    binding.tiedImagen.text.toString().trim(),
+                                    "+34627892520"
+                                )
+                            )
+                            Toast.makeText(this, "Lista actulizada", Toast.LENGTH_SHORT).show()
+                            finish()
+                        }
                     }
                     .setNegativeButton("Cancelar", null).create()
 
@@ -82,8 +109,7 @@ class EditarActivity : AppCompatActivity() {
 
             R.id.accion_cancelar -> {
 
-                val intent = Intent(this, PeliculasActivity::class.java)
-                startActivity(intent)
+                onBackPressed()
                 Toast.makeText(this, "Acción cancelada", Toast.LENGTH_SHORT).show()
 
                 return true

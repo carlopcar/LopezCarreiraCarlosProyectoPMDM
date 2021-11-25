@@ -12,8 +12,9 @@ import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+
     //Objeto compartido para poder leer la clase Preferences desde cualquier otra clase.
-    companion object{
+    companion object {
         @SuppressLint("StaticFieldLeak")
         lateinit var preferences: Preferences
     }
@@ -32,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //Método al pulsar el botón LOGIN
-        binding.btLoginAcceder.setOnClickListener{
+        binding.btLoginAcceder.setOnClickListener {
 
             val email = preferences.recuperarDatos("email")
             val psw = preferences.recuperarDatos("psw")
@@ -49,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         //Método al pulsar el textview REGISTRO
-        binding.tvLoginRegistro.setOnClickListener{
+        binding.tvLoginRegistro.setOnClickListener {
 
             //Iniciamos RegistroUsuarios al hacer click en Registro
             val intent = Intent(this, RegistroUsuariosActivity::class.java)

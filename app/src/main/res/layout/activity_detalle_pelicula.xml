@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,6 +8,10 @@
     android:paddingVertical="@dimen/margen_pantalla_default_vertical"
     android:background="@color/fondo_azul"
     tools:context=".activities.DetallePeliculaActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
@@ -22,20 +26,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.25" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.25" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
 
     <ImageView
         android:id="@+id/ivPelicula"
@@ -59,7 +49,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="director" />
+        tools:text="director"
+        android:textStyle="italic"/>
 
     <TextView
         android:id="@+id/tvDGenero"
@@ -70,7 +61,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/tvDDirector"
-        tools:text="genero"/>
+        tools:text="genero"
+        android:textStyle="italic"/>
 
     <TextView
         android:id="@+id/tvDAno"
@@ -81,7 +73,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6"
-        tools:text="ano"/>
+        tools:text="ano"
+        android:textStyle="italic"/>
 
     <TextView
         android:id="@+id/tvDDuracion"
@@ -92,7 +85,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDAno"
-        tools:text="duracion"/>
+        tools:text="duracion"
+        android:textStyle="italic"/>
 
     <TextView
         android:id="@+id/tvDMusica"
@@ -103,7 +97,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/tvDGenero"
-        tools:text="musica" />
+        tools:text="musica"
+        android:textStyle="italic"/>
 
     <TextView
         android:id="@+id/tvDFotografia"
@@ -114,7 +109,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/tvDMusica"
-        tools:text="fotografia" />
+        tools:text="fotografia"
+        android:textStyle="italic"/>
 
     <TextView
         android:id="@+id/tvDPais"
@@ -125,7 +121,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/tvDFotografia"
-        tools:text="pais"/>
+        tools:text="pais"
+        android:textStyle="italic"/>
 
     <TextView
         android:id="@+id/tvDDescripcion"
@@ -136,5 +133,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDPais"
-        tools:text="descripcion" />
+        tools:text="descripcion"
+        android:textStyle="italic"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

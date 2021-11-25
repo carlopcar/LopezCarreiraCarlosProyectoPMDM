@@ -19,12 +19,12 @@ class ListaPeliculasAdapter (private val peliculas: List<Pelicula>, val context:
     //Adapter: tres métodos y clase ViewHolder
     class PeliculasViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
 
-        val tvTitulo: TextView = itemView.findViewById<TextView>(R.id.tvTitulo)
-        val tvDirector: TextView = itemView.findViewById<TextView>(R.id.tvDirector)
-        val tvGenero: TextView = itemView.findViewById<TextView>(R.id.tvGenero)
-        val tvNota: TextView = itemView.findViewById<TextView>(R.id.tvNota)
-        val ivFoto: ImageView = itemView.findViewById<ImageView>(R.id.ivFoto)
-        val cvLista: CardView = itemView.findViewById<CardView>(R.id.cvLista)
+        val tvTitulo: TextView = itemView.findViewById(R.id.tvTitulo)
+        val tvDirector: TextView = itemView.findViewById(R.id.tvDirector)
+        val tvGenero: TextView = itemView.findViewById(R.id.tvGenero)
+        val tvNota: TextView = itemView.findViewById(R.id.tvNota)
+        val ivFoto: ImageView = itemView.findViewById(R.id.ivFoto)
+        val cvLista: CardView = itemView.findViewById(R.id.cvLista)
 
     }
 

@@ -3,15 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/accion_llamar"
+        android:orderInCategory="0"
+        android:icon="@drawable/ic_baseline_phone_forwarded_24"
+        android:title="@string/hint_llamar"
+        app:showAsAction="ifRoom"/>
+
+    <item
         android:id="@+id/accion_editar"
-        android:orderInCategory="300"
+        android:orderInCategory="1"
         android:icon="@drawable/ic_baseline_edit_24"
         android:title="@string/hint_editar"
         app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/accion_borrar"
-        android:orderInCategory="300"
+        android:orderInCategory="2"
         android:icon="@drawable/ic_baseline_delete_outline_24"
         android:title="@string/hint_eliminar"
         app:showAsAction="ifRoom"/>

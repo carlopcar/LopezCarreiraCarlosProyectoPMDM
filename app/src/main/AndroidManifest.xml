@@ -8,19 +8,17 @@
         android:name=".App"
         android:allowBackup="true"
         android:label="@string/app_name"
-        android:icon="@drawable/ic_logo_app"
-        android:roundIcon="@drawable/ic_logo_app"
+        android:icon="@drawable/ic_app"
+        android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/Theme.LopezCarreiraCarlosProyectoPMDM">
         <activity
             android:name=".activities.EditarActivity"
             android:exported="true"
-            android:label="Fábrica de peliculas"
-            android:screenOrientation="portrait"/>
+            android:label="Fábrica de peliculas"/>
         <activity
             android:name=".activities.DetallePeliculaActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
+            android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.PeliculasActivity" />
@@ -28,21 +26,18 @@
         <activity
             android:name=".activities.PeliculasActivity"
             android:exported="true"
-            android:label="Listado de Peliculas"
-            android:screenOrientation="portrait" />
+            android:label="Listado de Peliculas"/>
         <activity
             android:name=".activities.RegistroUsuariosActivity"
             android:exported="true"
-            android:label="Registro"
-            android:screenOrientation="portrait">
+            android:label="Registro">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.LoginActivity" />
         </activity>
         <activity
             android:name=".activities.LoginActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

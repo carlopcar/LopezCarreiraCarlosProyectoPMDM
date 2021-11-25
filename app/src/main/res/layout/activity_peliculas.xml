@@ -8,6 +8,8 @@
     android:background="@color/fondo_azul"
     tools:context=".activities.PeliculasActivity">
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_lista_peliculas"
         android:layout_width="0dp"
@@ -23,7 +25,7 @@
         android:contentDescription="@string/hint_añadir"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
+        app:srcCompat="@android:drawable/ic_input_add"
+        app:fabSize="mini"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

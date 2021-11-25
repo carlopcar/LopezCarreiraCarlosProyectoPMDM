@@ -1,8 +1,8 @@
 package com.example.lopezcarreiracarlosproyectopmdm.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
 import com.example.lopezcarreiracarlosproyectopmdm.activities.LoginActivity.Companion.preferences
@@ -24,14 +24,13 @@ class RegistroUsuariosActivity : AppCompatActivity() {
             //SharedPreferences
 
             if(comprobarDatos()){
-                val email = binding.etRegistroEmail.text.toString()
-                val psw = binding.etRegistroPsw.text.toString()
+                val email = binding.etRegistroEmail.text.toString().trim()
+                val psw = binding.etRegistroPsw.text.toString().trim()
 
                 preferences.guardar(email , psw)
 
                 //Volver a Login
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
+                onBackPressed()
             }
         }
     }
@@ -43,24 +42,35 @@ class RegistroUsuariosActivity : AppCompatActivity() {
     }
 
     private fun comprobarDatos():Boolean{
-        val psw = binding.etRegistroPsw.text.toString()
-        val pswrep = binding.etRegistroRepPsw.text.toString()
 
-        if (!validarEmail(binding.etRegistroEmail.text.toString())) {
+        val nombreUsuario = binding.etRegistroNombreUsuario.text.toString().trim()
+        val email = binding.etRegistroEmail.text.toString().trim()
+        val telefono = binding.etTelefono.text.toString().trim()
+        val psw = binding.etRegistroPsw.text.toString().trim()
+        val pswrep = binding.etRegistroRepPsw.text.toString().trim()
+
+        if (!validarEmail(email)) {
             //Si el email es incorrecto
-            //Mensaje de que el email es incorrecto
             Toast.makeText(this, "El email no es correcto", Toast.LENGTH_SHORT)
                 .show()
             return false
         } else if (psw.length < 8 || psw.length > 16) {
             //Comprobamos la longitud de la contraseña
-            //Mensaje de que el email es incorrecto
             Toast.makeText(this, "La contraseña no tiene la longitud correcta", Toast.LENGTH_SHORT)
                 .show()
             return false
         } else if (psw != pswrep) {
-            //Mensaje de que el email es incorrecto
+            //Comprobamos que las contraseñas sean iguales
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT)
+                .show()
+            return false
+        }else if (TextUtils.isEmpty(nombreUsuario) ||
+            TextUtils.isEmpty(email) ||
+            TextUtils.isEmpty(telefono) ||
+            TextUtils.isEmpty(psw) ||
+            TextUtils.isEmpty(pswrep) ){
+
+            Toast.makeText(this, "Debes rellenar todos los datos", Toast.LENGTH_SHORT)
                 .show()
             return false
         }
