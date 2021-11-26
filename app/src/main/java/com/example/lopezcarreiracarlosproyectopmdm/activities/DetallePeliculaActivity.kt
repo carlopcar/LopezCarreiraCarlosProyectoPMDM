@@ -24,13 +24,15 @@ class DetallePeliculaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        binding = ActivityDetallePeliculaBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
     }
 
 
     override fun onResume() {
         super.onResume()
+
+        binding = ActivityDetallePeliculaBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         pelicula = intent.extras?.get("pelicula") as Pelicula
 

@@ -1,6 +1,5 @@
 package com.example.lopezcarreiracarlosproyectopmdm.activities
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,7 +13,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
     companion object {
-        @SuppressLint("StaticFieldLeak")
         lateinit var preferences: Preferences
     }
 
