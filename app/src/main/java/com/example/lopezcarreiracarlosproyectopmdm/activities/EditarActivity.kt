@@ -2,11 +2,12 @@ package com.example.lopezcarreiracarlosproyectopmdm.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.example.lopezcarreiracarlosproyectopmdm.App
+import com.example.lopezcarreiracarlosproyectopmdm.App.Companion.peliculas
 import com.example.lopezcarreiracarlosproyectopmdm.R
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityEditarBinding
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
@@ -14,7 +15,7 @@ import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
 class EditarActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditarBinding
-    private lateinit var pelicula: Pelicula
+    private var pelicula: Pelicula? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,21 +24,21 @@ class EditarActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val pelicula = intent.extras?.get("pelicula") as Pelicula?
+        pelicula = intent.extras?.get("pelicula") as Pelicula?
 
         if (pelicula != null) {
 
-            binding.tiedTitulo.setText(pelicula.titulo)
-            binding.tiedDirector.setText(pelicula.director)
-            binding.tiedGenero.setText(pelicula.genero)
-            binding.tiedNota.setText(pelicula.nota)
-            binding.tiedAno.setText(pelicula.ano)
-            binding.tiedDuracion.setText(pelicula.duracion)
-            binding.tiedMusica.setText(pelicula.musica)
-            binding.tiedFoto.setText(pelicula.fotografia)
-            binding.tiedPais.setText(pelicula.pais)
-            binding.tiedDesc.setText(pelicula.descripcion)
-            binding.tiedImagen.setText(pelicula.url)
+            binding.tiedTitulo.setText(pelicula?.titulo)
+            binding.tiedDirector.setText(pelicula?.director)
+            binding.tiedGenero.setText(pelicula?.genero)
+            binding.tiedNota.setText(pelicula?.nota)
+            binding.tiedAno.setText(pelicula?.ano)
+            binding.tiedDuracion.setText(pelicula?.duracion)
+            binding.tiedMusica.setText(pelicula?.musica)
+            binding.tiedFoto.setText(pelicula?.fotografia)
+            binding.tiedPais.setText(pelicula?.pais)
+            binding.tiedDesc.setText(pelicula?.descripcion)
+            binding.tiedImagen.setText(pelicula?.url)
 
         }
     }
@@ -52,57 +53,66 @@ class EditarActivity : AppCompatActivity() {
 
             R.id.accion_guardar -> {
 
-                val builder = AlertDialog.Builder(this)
-                val dialog = builder.setTitle("Actualizar películas").setMessage(
-                    "¿Estás seguro de querer añadirla a tu lista?")
-                    .setPositiveButton("Aceptar") { _, _ ->
-                        if (pelicula == null) {
-                            App.peliculas.remove(pelicula)
-                            App.peliculas.add(
-                                Pelicula(
-                                    0,
-                                    binding.tiedTitulo.text.toString().trim(),
-                                    binding.tiedDirector.text.toString().trim(),
-                                    binding.tiedGenero.text.toString().trim(),
-                                    binding.tiedNota.text.toString().trim(),
-                                    binding.tiedAno.text.toString().trim(),
-                                    binding.tiedDuracion.text.toString().trim(),
-                                    binding.tiedMusica.text.toString().trim(),
-                                    binding.tiedFoto.text.toString().trim(),
-                                    binding.tiedPais.text.toString().trim(),
-                                    binding.tiedDesc.text.toString().trim(),
-                                    binding.tiedImagen.text.toString().trim(),
-                                    "+34627892520"
+                val titulo = binding.tiedTitulo.text.toString().trim()
+                val director = binding.tiedDirector.text.toString().trim()
+                val genero = binding.tiedGenero.text.toString().trim()
+                val nota = binding.tiedNota.text.toString().trim()
+                val img = binding.tiedImagen.text.toString().trim()
+                val ano = binding.tiedAno.text.toString().trim()
+                val duracion = binding.tiedDuracion.text.toString().trim()
+                val musica = binding.tiedMusica.text.toString().trim()
+                val foto = binding.tiedFoto.text.toString().trim()
+                val pais = binding.tiedPais.text.toString().trim()
+                val desc = binding.tiedDesc.text.toString().trim()
+
+                if (TextUtils.isEmpty(titulo) || TextUtils.isEmpty(director) ||
+                    TextUtils.isEmpty(genero) || TextUtils.isEmpty(nota) ||
+                    TextUtils.isEmpty(img) || TextUtils.isEmpty(ano) ||
+                    TextUtils.isEmpty(duracion) || TextUtils.isEmpty(musica) ||
+                    TextUtils.isEmpty(foto) || TextUtils.isEmpty(desc)
+                ) {
+
+                    Toast.makeText(this, "Rellena todos los campos", Toast.LENGTH_SHORT).show()
+
+                } else {
+
+                    val builder = AlertDialog.Builder(this)
+                    val dialog = builder.setTitle("Actualizar películas").setMessage(
+                        "¿Estás seguro de querer añadirla a tu lista?"
+                    )
+                        .setPositiveButton("Aceptar") { _, _ ->
+                            if (pelicula != null) {
+
+
+                                val indicePelicula = peliculas.indexOf(pelicula)
+
+                                val peliculaEditada = Pelicula(
+                                    0, titulo, director, genero, nota, img, ano, duracion, musica,
+                                    foto, pais, desc, "+34627892520"
                                 )
-                            )
-                            Toast.makeText(this, "Lista actulizada", Toast.LENGTH_SHORT).show()
-                            finish()
-                        }else{
-                            App.peliculas.add(
-                                Pelicula(
-                                    0,
-                                    binding.tiedTitulo.text.toString().trim(),
-                                    binding.tiedDirector.text.toString().trim(),
-                                    binding.tiedGenero.text.toString().trim(),
-                                    binding.tiedNota.text.toString().trim(),
-                                    binding.tiedAno.text.toString().trim(),
-                                    binding.tiedDuracion.text.toString().trim(),
-                                    binding.tiedMusica.text.toString().trim(),
-                                    binding.tiedFoto.text.toString().trim(),
-                                    binding.tiedPais.text.toString().trim(),
-                                    binding.tiedDesc.text.toString().trim(),
-                                    binding.tiedImagen.text.toString().trim(),
-                                    "+34627892520"
+                                peliculas[indicePelicula] = peliculaEditada
+
+                                Toast.makeText(this, "Lista actualizada", Toast.LENGTH_SHORT).show()
+                                finish()
+
+                            } else {
+
+
+                                peliculas.add(
+                                    Pelicula(
+                                        0, titulo, director, genero, nota, img, ano, duracion,
+                                        musica, foto, pais, desc, "+34627892520"
+                                    )
                                 )
-                            )
-                            Toast.makeText(this, "Lista actulizada", Toast.LENGTH_SHORT).show()
-                            finish()
+                                Toast.makeText(this, "Lista actulizada", Toast.LENGTH_SHORT).show()
+                                finish()
+
+                            }
                         }
-                    }
-                    .setNegativeButton("Cancelar", null).create()
+                        .setNegativeButton("Cancelar", null).create()
 
-                dialog.show()
-
+                    dialog.show()
+                }
                 return true
 
             }

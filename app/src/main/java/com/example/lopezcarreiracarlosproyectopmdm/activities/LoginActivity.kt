@@ -13,7 +13,6 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
 
-    //Objeto compartido para poder leer la clase Preferences desde cualquier otra clase.
     companion object {
         @SuppressLint("StaticFieldLeak")
         lateinit var preferences: Preferences

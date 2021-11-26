@@ -35,6 +35,7 @@ class PeliculasActivity : AppCompatActivity() {
 
         binding.fabAnadir.setOnClickListener {
             val intent = Intent(this, EditarActivity::class.java)
+            intent.putExtra("posicion-pelicula", 0)
             startActivity(intent)
             Toast.makeText(this, "Añadir película", Toast.LENGTH_SHORT).show()
         }

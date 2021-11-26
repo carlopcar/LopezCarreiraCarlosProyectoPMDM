@@ -1,6 +1,5 @@
 package com.example.lopezcarreiracarlosproyectopmdm.activities
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -21,12 +20,17 @@ class DetallePeliculaActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetallePeliculaBinding
     private lateinit var pelicula: Pelicula
 
-    @SuppressLint("SetTextI18n")
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         binding = ActivityDetallePeliculaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+
+    override fun onResume() {
+        super.onResume()
 
         pelicula = intent.extras?.get("pelicula") as Pelicula
 

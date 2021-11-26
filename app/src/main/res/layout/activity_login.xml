@@ -64,8 +64,6 @@
         android:layout_marginEnd="@dimen/margen_derecho_til"
         android:layout_marginTop="@dimen/margen_top_til"
 
-        android:textColorHint="@color/black"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/gdhorizontal25"
@@ -91,8 +89,6 @@
 
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/primaryLightColor"
-
-        android:textColorHint="@color/black"
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 

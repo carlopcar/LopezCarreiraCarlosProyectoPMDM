@@ -22,8 +22,6 @@
         android:layout_marginStart="@dimen/margen_izquierdo_til"
         android:layout_marginEnd="@dimen/margen_derecho_til"
 
-        android:textColorHint="@color/black"
-
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
         app:startIconDrawable="@drawable/ic_icons8_user_male_30"
@@ -49,8 +47,6 @@
         android:layout_marginStart="@dimen/margen_izquierdo_til"
         android:layout_marginEnd="@dimen/margen_derecho_til"
 
-        android:textColorHint="@color/black"
-
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
         app:startIconDrawable="@android:drawable/ic_dialog_email"
@@ -75,8 +71,6 @@
         android:layout_marginStart="@dimen/margen_izquierdo_til"
         android:layout_marginTop="@dimen/margen_top_til"
         android:layout_marginEnd="@dimen/margen_derecho_til"
-
-        android:textColorHint="@color/black"
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
@@ -106,8 +100,6 @@
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/primaryLightColor"
 
-        android:textColorHint="@color/black"
-
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
         app:startIconDrawable="@android:drawable/ic_lock_lock"
@@ -135,8 +127,6 @@
 
         app:passwordToggleEnabled="true"
         app:passwordToggleTint="@color/primaryLightColor"
-
-        android:textColorHint="@color/black"
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
