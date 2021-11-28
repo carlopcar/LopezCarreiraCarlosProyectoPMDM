@@ -24,13 +24,6 @@ class DetallePeliculaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-
         binding = ActivityDetallePeliculaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -48,7 +41,18 @@ class DetallePeliculaActivity : AppCompatActivity() {
 
 
         Picasso.get().load(pelicula.url).into(binding.ivPelicula)
+
     }
+
+    //Utilizo el onStop para forzar que al editar una película volvamos directamente a la lista
+    //de películas ya que entiendo que el usuario debe presuponer que la función editar se realiza
+    //correctamente y no tiene sentido volver al detalle para comprobarlo.
+    override fun onStop() {
+        super.onStop()
+        onBackPressed()
+    }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detalle_peliculas, menu)
