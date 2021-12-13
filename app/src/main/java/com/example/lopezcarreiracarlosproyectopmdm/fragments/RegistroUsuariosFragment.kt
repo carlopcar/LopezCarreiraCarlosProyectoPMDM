@@ -1,0 +1,20 @@
+package com.example.lopezcarreiracarlosproyectopmdm.fragments
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.example.lopezcarreiracarlosproyectopmdm.R
+
+class RegistroUsuariosFragment : Fragment() {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        val vista = inflater.inflate(R.layout.fragment_registro_usuarios, container, false)
+
+        return vista
+    }
+
+
+}

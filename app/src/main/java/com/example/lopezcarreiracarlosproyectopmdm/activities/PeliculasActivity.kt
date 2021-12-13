@@ -20,11 +20,11 @@ class PeliculasActivity : AppCompatActivity() {
         binding = ActivityPeliculasBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Obtenemos los datos de los personajes
+        //Obtenemos los datos de las peliculas
         val peliculasDao = PeliculasDaoMockImpl()
         val listaPeliculas = peliculasDao.getTodos()
 
-        //Creamos los componentes que necesita el ReciclerView con todos sus personajes
+        //Creamos los componentes que necesita el ReciclerView con todas sus películas
         val layoutManager = LinearLayoutManager(this)
         val adapter = ListaPeliculasAdapter(listaPeliculas,this)
 
