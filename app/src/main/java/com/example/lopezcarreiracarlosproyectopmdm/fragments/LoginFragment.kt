@@ -26,6 +26,8 @@ class LoginFragment : Fragment() {
         binding =  FragmentLoginBinding.inflate(inflater, container, false)
         con = requireContext().applicationContext
 
+        activity?.title = "Login"
+
         //Inicializamos las preferences
         preferences = Preferences(con)
 

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.widget.Toast
-import com.example.lopezcarreiracarlosproyectopmdm.activities.LoginActivity.Companion.preferences
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityRegistroUsuariosBinding
 import java.util.regex.Pattern
 
@@ -27,7 +26,7 @@ class RegistroUsuariosActivity : AppCompatActivity() {
                 val email = binding.etRegistroEmail.text.toString().trim()
                 val psw = binding.etRegistroPsw.text.toString().trim()
 
-                preferences.guardar(email , psw)
+                //preferences.guardar(email , psw)
 
                 //Volver a Login
                 onBackPressed()

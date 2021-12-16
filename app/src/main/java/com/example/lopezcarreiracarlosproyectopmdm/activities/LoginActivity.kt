@@ -13,16 +13,16 @@ class LoginActivity : AppCompatActivity() {
 
     //private lateinit var binding: ActivityLoginBinding
 
-    companion object {
-        lateinit var preferences: Preferences
-    }
+    //companion object {
+        //lateinit var preferences: Preferences
+    //}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        title = "FrikiFilm"
+        //title = "FrikiFilm"
 
         //Inicializamos las preferences
         //preferences = Preferences(applicationContext)
@@ -56,15 +56,13 @@ class LoginActivity : AppCompatActivity() {
 
         //}
 
-
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.contenedorFragments,LoginFragment())
+        fragmentTransaction.commit()
 
         supportFragmentManager.addOnBackStackChangedListener {
             supportActionBar?.setDisplayHomeAsUpEnabled(supportFragmentManager.backStackEntryCount > 0)
         }
-
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.contenedorFragments,LoginFragment())
-        fragmentTransaction.commit()
 
     }
 
