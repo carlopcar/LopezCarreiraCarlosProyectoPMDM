@@ -5,7 +5,6 @@
     android:id="@+id/contenedorFragments"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/padding_app"
     android:background="@color/fondo_azul"
     tools:context=".activities.LoginActivity">
 

@@ -55,6 +55,7 @@ class LoginFragment : Fragment() {
 
             val ft = activity?.supportFragmentManager?.beginTransaction()
             ft?.replace(R.id.contenedorFragments , RegistroUsuariosFragment())
+            ft?.addToBackStack(null)
             ft?.commit()
 
         }

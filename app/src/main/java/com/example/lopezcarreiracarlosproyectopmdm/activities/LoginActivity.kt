@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.lopezcarreiracarlosproyectopmdm.R
+import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityLoginBinding
 import com.example.lopezcarreiracarlosproyectopmdm.fragments.LoginFragment
-import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
 
 
 class LoginActivity : AppCompatActivity() {
 
-    //private lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityLoginBinding
 
     //companion object {
         //lateinit var preferences: Preferences
@@ -26,9 +26,6 @@ class LoginActivity : AppCompatActivity() {
 
         //Inicializamos las preferences
         //preferences = Preferences(applicationContext)
-
-        //binding = ActivityLoginBinding.inflate(layoutInflater)
-        //setContentView(binding.root)
 
         //Método al pulsar el botón LOGIN
         //binding.btLoginAcceder.setOnClickListener {
@@ -55,6 +52,8 @@ class LoginActivity : AppCompatActivity() {
           //  startActivity(intent)
 
         //}
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.add(R.id.contenedorFragments,LoginFragment())
