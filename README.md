@@ -8,11 +8,11 @@
 
 ### Imágenes de la App.
 
-- Pantalla de Login:
+#### Pantalla de Login:
 ![Imágen pantalla login](https://github.com/carlopcar/LopezCarreiraCarlosProyectoPMDM/blob/main/imagenes/img_login.png)
 
-- Listado de películas:
+#### Listado de películas:
 ![Imágen listado de peliculas](https://github.com/carlopcar/LopezCarreiraCarlosProyectoPMDM/blob/main/imagenes/img_lista.png)
 
-- Pantalla de Detalles:
+#### Pantalla de detalles:
 ![Imágen pantallas de detalle ](https://github.com/carlopcar/LopezCarreiraCarlosProyectoPMDM/blob/main/imagenes/img_detalle.png)
