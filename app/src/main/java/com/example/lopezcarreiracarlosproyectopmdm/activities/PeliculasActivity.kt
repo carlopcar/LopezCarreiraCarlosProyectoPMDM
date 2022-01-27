@@ -3,12 +3,18 @@ package com.example.lopezcarreiracarlosproyectopmdm.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lopezcarreiracarlosproyectopmdm.App.Companion.peliculas
+import com.example.lopezcarreiracarlosproyectopmdm.RetrofitClient
 import com.example.lopezcarreiracarlosproyectopmdm.adapters.ListaPeliculasAdapter
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityPeliculasBinding
 import com.example.lopezcarreiracarlosproyectopmdm.model.dao.PeliculasDaoMockImpl
+import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class PeliculasActivity : AppCompatActivity() {
 
@@ -39,6 +45,23 @@ class PeliculasActivity : AppCompatActivity() {
             startActivity(intent)
             Toast.makeText(this, "Añadir película", Toast.LENGTH_SHORT).show()
         }
+
+
+        //Retrofit
+        val context = this
+
+        val llamadaApi: Call<List<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas()
+        llamadaApi.enqueue(object:Callback<List<Pelicula>>{
+
+            override fun onResponse(call: Call<List<Pelicula>>,response: Response<List<Pelicula>>
+            ) {
+                Toast.makeText(context,response.body().toString(),Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {
+                Log.d("Prueba", t.message.toString())
+            }
+        })
     }
 
     override fun onResume() {
