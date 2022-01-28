@@ -26,17 +26,7 @@ class PeliculasActivity : AppCompatActivity() {
         binding = ActivityPeliculasBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Obtenemos los datos de las peliculas
-        val peliculasDao = PeliculasDaoMockImpl()
-        val listaPeliculas = peliculasDao.getTodos()
 
-        //Creamos los componentes que necesita el ReciclerView con todas sus películas
-        val layoutManager = LinearLayoutManager(this)
-        val adapter = ListaPeliculasAdapter(listaPeliculas,this)
-
-        //Asociamos el RecyclerView con sus componentes
-        binding.rvListaPeliculas.adapter = adapter
-        binding.rvListaPeliculas.layoutManager = layoutManager
 
 
         binding.fabAnadir.setOnClickListener {
@@ -55,7 +45,22 @@ class PeliculasActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<List<Pelicula>>,response: Response<List<Pelicula>>
             ) {
-                Toast.makeText(context,response.body().toString(),Toast.LENGTH_SHORT).show()
+                //Obtenemos los datos de las peliculas
+                val peliculas = response.body()
+
+                if (peliculas != null){
+
+                    //Creamos los componentes que necesita el ReciclerView con todas sus películas
+                    val layoutManager = LinearLayoutManager(context)
+                    val adapter = ListaPeliculasAdapter(peliculas,context)
+
+                    //Asociamos el RecyclerView con sus componentes
+                    binding.rvListaPeliculas.adapter = adapter
+                    binding.rvListaPeliculas.layoutManager = layoutManager
+
+                }
+
+
             }
 
             override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {

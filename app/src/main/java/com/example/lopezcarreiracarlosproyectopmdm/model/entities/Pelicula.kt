@@ -6,15 +6,15 @@ import java.io.Serializable
 data class Pelicula(
     var id: Long,
     @SerializedName("title")var titulo: String,
-    var director: String,
-    var genero: String,
+    @SerializedName("directorFarstname")var director: String,
+    @SerializedName("genre")var genero: String,
     @SerializedName("rating")var nota: String,
-    var url: String,
-    var ano: String,
+    @SerializedName("imageUrl")var url: String,
+    @SerializedName("releaseYear")var ano: String,
     @SerializedName("runtimeMinutes")var duracion: String,
-    var musica: String,
-    var fotografia: String,
-    var pais: String,
-    var descripcion: String,
-    var numDirector: String
+    @SerializedName("musicDirector")var musica: String,
+    @SerializedName("photographyDirector")var fotografia: String,
+    @SerializedName("country")var pais: String,
+    @SerializedName("description")var descripcion: String,
+    @SerializedName("directorPhone")var numDirector: String
 ) : Serializable
