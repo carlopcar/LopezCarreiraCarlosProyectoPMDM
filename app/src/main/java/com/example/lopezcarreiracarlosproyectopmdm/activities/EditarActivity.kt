@@ -3,19 +3,30 @@ package com.example.lopezcarreiracarlosproyectopmdm.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lopezcarreiracarlosproyectopmdm.App.Companion.peliculas
 import com.example.lopezcarreiracarlosproyectopmdm.R
+import com.example.lopezcarreiracarlosproyectopmdm.RetrofitClient
+import com.example.lopezcarreiracarlosproyectopmdm.adapters.ListaPeliculasAdapter
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityEditarBinding
+import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class EditarActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditarBinding
     private var pelicula: Pelicula? = null
+    companion object {
+        lateinit var preferences: Preferences
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,7 +98,7 @@ class EditarActivity : AppCompatActivity() {
                                 val indicePelicula = peliculas.indexOf(pelicula)
 
                                 val peliculaEditada = Pelicula(
-                                    0, titulo, director, genero, nota, img, ano, duracion, musica,
+                                    "", titulo, director, genero, nota, img, ano, duracion, musica,
                                     foto, pais, desc, "+34627892520"
                                 )
                                 peliculas[indicePelicula] = peliculaEditada
@@ -97,13 +108,46 @@ class EditarActivity : AppCompatActivity() {
 
                             } else {
 
+                                preferences = Preferences(this)
 
-                                peliculas.add(
+                                var pelicula = Pelicula("", titulo, director, genero, nota, img, ano, duracion,
+                                    musica, foto, pais, desc, "+34627892520")
+
+                                //Retrofit
+                                val context = this
+
+                                var token = "Bearer " +preferences.recuperarDatosToken("")
+
+                                val llamadaApi: Call<Unit> = RetrofitClient.apiRetrofit.crear(token,pelicula)
+                                llamadaApi.enqueue(object: Callback<Unit> {
+
+                                    override fun onResponse(call: Call<Unit>, response: Response<Unit>
+                                    ) {
+                                        //Obtenemos los datos de las peliculas
+                                        val peliculas = response.body()
+
+                                        if (response.code() > 299 || response.code() < 200 || peliculas == null) {
+
+                                            Toast.makeText(context,"No ha sido posible cargar la lista de películas", Toast.LENGTH_SHORT).show()
+
+                                        } else {
+
+
+                                        }
+                                    }
+
+                                    override fun onFailure(call: Call<Unit>, t: Throwable) {
+                                        Log.d("Prueba", t.message.toString())
+                                    }
+                                })
+
+
+                                /*peliculas.add(
                                     Pelicula(
-                                        0, titulo, director, genero, nota, img, ano, duracion,
+                                        "", titulo, director, genero, nota, img, ano, duracion,
                                         musica, foto, pais, desc, "+34627892520"
                                     )
-                                )
+                                )*/
                                 Toast.makeText(this, "Lista actulizada", Toast.LENGTH_SHORT).show()
                                 finish()
 

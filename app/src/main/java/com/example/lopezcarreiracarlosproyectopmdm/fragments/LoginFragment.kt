@@ -110,9 +110,10 @@ class LoginFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        var mail = preferences.recuperarDatosEmail("")
-        binding.etLoginEmail.setText(mail)
-
+        var mail = preferences.recuperarDatosEmail("").toString()
+        if (mail != null) {
+            binding.etLoginEmail.setText(mail)
+        }
     }
 
 }
