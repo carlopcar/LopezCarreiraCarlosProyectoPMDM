@@ -33,7 +33,7 @@ class DetallePeliculaActivity : AppCompatActivity() {
         binding.tvDDirector.text = "Director: \n\n" + pelicula.director
         binding.tvDGenero.text = "Género: \n\n" + pelicula.genero
         binding.tvDAno.text = "Año del estreno: \n\n" + pelicula.ano
-        binding.tvDDuracion.text = "Duración: \n\n" + pelicula.duracion
+        binding.tvDDuracion.text = "Duración: \n\n" + pelicula.duracion + "´"
         binding.tvDMusica.text = "Dirección Musical: \n\n" + pelicula.musica
         binding.tvDFotografia.text = "Fotografía: \n\n" + pelicula.fotografia
         binding.tvDPais.text = "País: \n\n" + pelicula.pais

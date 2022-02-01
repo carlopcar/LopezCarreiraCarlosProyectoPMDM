@@ -110,7 +110,7 @@ class EditarActivity : AppCompatActivity() {
 
                                 preferences = Preferences(this)
 
-                                var pelicula = Pelicula("", titulo, director, genero, nota, img, ano, duracion,
+                                var pelicula = Pelicula(null, titulo, director, genero, nota, img, ano, duracion,
                                     musica, foto, pais, desc, "+34627892520")
 
                                 //Retrofit
@@ -123,15 +123,11 @@ class EditarActivity : AppCompatActivity() {
 
                                     override fun onResponse(call: Call<Unit>, response: Response<Unit>
                                     ) {
-                                        //Obtenemos los datos de las peliculas
-                                        val peliculas = response.body()
+                                        //Obtenemos los datos de la pelicula
 
-                                        if (response.code() > 299 || response.code() < 200 || peliculas == null) {
+                                        if (response.code() > 299 || response.code() < 200) {
 
                                             Toast.makeText(context,"No ha sido posible cargar la lista de películas", Toast.LENGTH_SHORT).show()
-
-                                        } else {
-
 
                                         }
                                     }

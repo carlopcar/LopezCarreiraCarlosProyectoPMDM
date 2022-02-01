@@ -25,7 +25,7 @@
     <string name="hint_genero">Género</string>
     <string name="hint_nota">Nota</string>
     <string name="hint_ano">Año del estreno</string>
-    <string name="hint_duracion">Duración (Ejemplo: 100\')</string>
+    <string name="hint_duracion">Duración (En Minutos)</string>
     <string name="hint_musica">Dirección Musical</string>
     <string name="hint_fotografia">Dirección de Fotografía</string>
     <string name="hint_pais">País</string>
