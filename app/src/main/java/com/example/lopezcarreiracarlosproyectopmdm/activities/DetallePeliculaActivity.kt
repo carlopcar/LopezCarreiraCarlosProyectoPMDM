@@ -97,7 +97,7 @@ class DetallePeliculaActivity : AppCompatActivity() {
                 val intent = Intent(this, EditarActivity::class.java)
 
 
-                intent.putExtra("pelicula", pelicula)
+                intent.putExtra("id", pelicula.id)
 
                 startActivity(intent)
                 Toast.makeText(this, "Editar película", Toast.LENGTH_SHORT).show()
@@ -111,7 +111,6 @@ class DetallePeliculaActivity : AppCompatActivity() {
                 val dialog = builder.setTitle("Borrar película").setMessage(
                     "Una vez eliminada no hay vuelta atrás, ¿Estás seguro?")
                     .setPositiveButton("Aceptar") { _, _ ->
-                        //peliculas.remove(pelicula)
 
                         //Retrofit
 
@@ -125,7 +124,7 @@ class DetallePeliculaActivity : AppCompatActivity() {
 
                             override fun onResponse(call: Call<Unit>, response: Response<Unit>
                             ) {
-                                //Obtenemos los datos de las peliculas
+
                                 val peliculas = response.body()
 
                                 if (response.code() > 299 || response.code() < 200 || peliculas == null) {

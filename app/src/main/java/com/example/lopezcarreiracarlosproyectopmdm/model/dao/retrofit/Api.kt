@@ -21,6 +21,14 @@ interface Api {
     fun crear(@Header("Authorization")token:String,
                 @Body pelicula: Pelicula): Call<Unit>
 
+    @GET("movies/{id}")
+    fun getById(@Header("Authorization") token:String,
+               @Path ("id") id: String?):Call<Pelicula>
+
+    @PUT("movies")
+    fun editar(@Header("Authorization") token:String,
+                @Body pelicula:Pelicula):Call<Unit>
+
     @DELETE("movies/{id}")
     fun borrar(@Header("Authorization") token:String,
                @Path ("id") id: String?):Call<Unit>

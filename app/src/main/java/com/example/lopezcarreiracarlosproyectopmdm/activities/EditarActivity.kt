@@ -8,11 +8,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.lopezcarreiracarlosproyectopmdm.App.Companion.peliculas
 import com.example.lopezcarreiracarlosproyectopmdm.R
-import com.example.lopezcarreiracarlosproyectopmdm.RetrofitClient
-import com.example.lopezcarreiracarlosproyectopmdm.adapters.ListaPeliculasAdapter
+import com.example.lopezcarreiracarlosproyectopmdm.RetrofitClient.apiRetrofit
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityEditarBinding
 import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
@@ -23,9 +20,10 @@ import retrofit2.Response
 class EditarActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditarBinding
-    private var pelicula: Pelicula? = null
+    private lateinit var  pelicula:Pelicula
     companion object {
         lateinit var preferences: Preferences
+        lateinit var id: String
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,23 +33,49 @@ class EditarActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        pelicula = intent.extras?.get("pelicula") as Pelicula?
+        id = intent.extras?.get("id") as String
 
-        if (pelicula != null) {
+        //Retrofit
 
-            binding.tiedTitulo.setText(pelicula?.titulo)
-            binding.tiedDirector.setText(pelicula?.director)
-            binding.tiedGenero.setText(pelicula?.genero)
-            binding.tiedNota.setText(pelicula?.nota)
-            binding.tiedAno.setText(pelicula?.ano)
-            binding.tiedDuracion.setText(pelicula?.duracion)
-            binding.tiedMusica.setText(pelicula?.musica)
-            binding.tiedFoto.setText(pelicula?.fotografia)
-            binding.tiedPais.setText(pelicula?.pais)
-            binding.tiedDesc.setText(pelicula?.descripcion)
-            binding.tiedImagen.setText(pelicula?.url)
+        DetallePeliculaActivity.preferences = Preferences(this)
+        val context = this
 
-        }
+        val token = "Bearer " + DetallePeliculaActivity.preferences.recuperarDatosToken("")
+
+        val llamadaApi: Call<Pelicula> = apiRetrofit.getById(token , id)
+        llamadaApi.enqueue(object: Callback<Pelicula> {
+
+            override fun onResponse(call: Call<Pelicula>, response: Response<Pelicula>
+            ) {
+
+                pelicula = response.body()!!
+
+                if (response.code() > 299 || response.code() < 200) {
+
+                    Toast.makeText(context,"No ha sido posible recuperar la película", Toast.LENGTH_SHORT).show()
+
+                } else {
+
+                    binding.tiedTitulo.setText(pelicula.titulo)
+                    binding.tiedDirector.setText(pelicula.director)
+                    binding.tiedGenero.setText(pelicula.genero)
+                    binding.tiedNota.setText(pelicula.nota)
+                    binding.tiedAno.setText(pelicula.ano)
+                    binding.tiedDuracion.setText(pelicula.duracion)
+                    binding.tiedMusica.setText(pelicula.musica)
+                    binding.tiedFoto.setText(pelicula.fotografia)
+                    binding.tiedPais.setText(pelicula.pais)
+                    binding.tiedDesc.setText(pelicula.descripcion)
+                    binding.tiedImagen.setText(pelicula.url)
+                }
+            }
+
+            override fun onFailure(call: Call<Pelicula>, t: Throwable) {
+                Log.d("Prueba", t.message.toString())
+            }
+        })
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -95,30 +119,53 @@ class EditarActivity : AppCompatActivity() {
                             if (pelicula != null) {
 
 
-                                val indicePelicula = peliculas.indexOf(pelicula)
-
-                                val peliculaEditada = Pelicula(
-                                    null, titulo, director, genero, nota, img, ano, duracion, musica,
-                                    foto, pais, desc, "+34627892520"
-                                )
-                                peliculas[indicePelicula] = peliculaEditada
-
-                                Toast.makeText(this, "Lista actualizada", Toast.LENGTH_SHORT).show()
-                                finish()
-
-                            } else {
-
                                 preferences = Preferences(this)
 
-                                var pelicula = Pelicula(null, titulo, director, genero, nota, img, ano, duracion,
+                                val peliculaEditada = Pelicula(pelicula.id, titulo, director, genero, nota, img, ano, duracion,
                                     musica, foto, pais, desc, "+34627892520")
 
                                 //Retrofit
                                 val context = this
 
-                                var token = "Bearer " +preferences.recuperarDatosToken("")
+                                val token = "Bearer " +preferences.recuperarDatosToken("")
 
-                                val llamadaApi: Call<Unit> = RetrofitClient.apiRetrofit.crear(token,pelicula)
+                                val llamadaApi: Call<Unit> = apiRetrofit.editar(token,peliculaEditada)
+                                llamadaApi.enqueue(object: Callback<Unit> {
+
+                                    override fun onResponse(call: Call<Unit>, response: Response<Unit>
+                                    ) {
+                                        //Obtenemos los datos de la pelicula
+
+                                        if (response.code() > 299 || response.code() < 200) {
+
+                                            Toast.makeText(context,"No ha sido posible editar la película", Toast.LENGTH_SHORT).show()
+
+                                        }else{
+                                            Toast.makeText(context, "Lista actualizada", Toast.LENGTH_SHORT).show()
+                                            finish()
+                                        }
+                                    }
+
+                                    override fun onFailure(call: Call<Unit>, t: Throwable) {
+                                        Log.d("Prueba", t.message.toString())
+                                    }
+                                })
+
+
+
+                            } else {
+
+                                preferences = Preferences(this)
+
+                                val pelicula = Pelicula(null, titulo, director, genero, nota, img, ano, duracion,
+                                    musica, foto, pais, desc, "+34627892520")
+
+                                //Retrofit
+                                val context = this
+
+                                val token = "Bearer " +preferences.recuperarDatosToken("")
+
+                                val llamadaApi: Call<Unit> = apiRetrofit.crear(token,pelicula)
                                 llamadaApi.enqueue(object: Callback<Unit> {
 
                                     override fun onResponse(call: Call<Unit>, response: Response<Unit>
