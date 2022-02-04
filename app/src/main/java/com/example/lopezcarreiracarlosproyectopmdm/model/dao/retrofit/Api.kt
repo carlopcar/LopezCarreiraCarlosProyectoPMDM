@@ -4,10 +4,7 @@ import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Token
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Usuario
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface Api {
 
@@ -24,7 +21,9 @@ interface Api {
     fun crear(@Header("Authorization")token:String,
                 @Body pelicula: Pelicula): Call<Unit>
 
-
+    @DELETE("movies/{id}")
+    fun borrar(@Header("Authorization") token:String,
+               @Path ("id") id: String?):Call<Unit>
 
 
 }

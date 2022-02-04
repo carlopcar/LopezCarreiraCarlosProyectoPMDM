@@ -5,20 +5,28 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.example.lopezcarreiracarlosproyectopmdm.App.Companion.peliculas
 import com.example.lopezcarreiracarlosproyectopmdm.R
+import com.example.lopezcarreiracarlosproyectopmdm.RetrofitClient.apiRetrofit
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityDetallePeliculaBinding
+import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
 import com.squareup.picasso.Picasso
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class DetallePeliculaActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetallePeliculaBinding
     private lateinit var pelicula: Pelicula
+    companion object {
+        lateinit var preferences: Preferences
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,9 +111,39 @@ class DetallePeliculaActivity : AppCompatActivity() {
                 val dialog = builder.setTitle("Borrar película").setMessage(
                     "Una vez eliminada no hay vuelta atrás, ¿Estás seguro?")
                     .setPositiveButton("Aceptar") { _, _ ->
-                        peliculas.remove(pelicula)
-                        Toast.makeText(this, "Película eliminada", Toast.LENGTH_SHORT).show()
-                        finish()
+                        //peliculas.remove(pelicula)
+
+                        //Retrofit
+
+                        preferences = Preferences(this)
+                        val context = this
+
+                        var token = "Bearer " + preferences.recuperarDatosToken("")
+
+                        val llamadaApi: Call<Unit> = apiRetrofit.borrar(token , pelicula.id)
+                        llamadaApi.enqueue(object: Callback<Unit> {
+
+                            override fun onResponse(call: Call<Unit>, response: Response<Unit>
+                            ) {
+                                //Obtenemos los datos de las peliculas
+                                val peliculas = response.body()
+
+                                if (response.code() > 299 || response.code() < 200 || peliculas == null) {
+
+                                    Toast.makeText(context,"No ha sido posible cargar la lista de películas", Toast.LENGTH_SHORT).show()
+
+                                } else {
+
+                                    Toast.makeText(context, "Película eliminada", Toast.LENGTH_SHORT).show()
+                                    finish()
+                                }
+                            }
+
+                            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                                Log.d("Prueba", t.message.toString())
+                            }
+                        })
+
                     }
                     .setNegativeButton("Cancelar", null).create()
 

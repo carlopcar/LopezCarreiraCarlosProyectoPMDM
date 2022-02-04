@@ -11,7 +11,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
         lista.addAll(
             listOf(
                 Pelicula(
-                    "",
+                    "0",
                     "El Pianista",
                     "Roman Polanski",
                     "Drama",
@@ -30,7 +30,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "+34627892520"
                 ),
                 Pelicula(
-                    "",
+                    "0",
                     "Intocable",
                     "Olivier Nakache, Eric Toledano",
                     "Comedia / Drama",
@@ -52,7 +52,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "+34627892520"
                 ),
                 Pelicula(
-                    "",
+                    "0",
                     "Big Fish",
                     "Tim Burton",
                     "Drama",
@@ -74,7 +74,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "+34627892520"
                 ),
                 Pelicula(
-                    "",
+                    "0",
                     "Snatch. Cerdos y diamantes",
                     "Guy Ritchie",
                     "Comedia Negra",
@@ -96,7 +96,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "+34627892520"
                 ),
                 Pelicula(
-                    "",
+                    "0",
                     "OldBoy",
                     "Park Chan-wook",
                     "Triller / Intriga",
@@ -114,7 +114,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "+34627892520"
                 ),
                 Pelicula(
-                    "",
+                    "0",
                     "El silencio de los corderos",
                     "Jonathan Demme",
                     "Triller / Intriga",
@@ -137,7 +137,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "+34627892520"
                 ),
                 Pelicula(
-                    "",
+                    "0",
                     "Gladiator",
                     "Ridley Scott",
                     "Acción / Drama",
@@ -157,7 +157,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "+34627892520"
                 ),
                 Pelicula(
-                    "",
+                    "0",
                     "Interstellar",
                     "Christopher Nolan",
                     "Ciencia ficción / Drama",
@@ -177,7 +177,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "+34627892520"
                 ),
                 Pelicula(
-                    "",
+                    "0",
                     "Malditos Bastardos",
                     "Quentin Tarantino",
                     "Bélico / Acción",
@@ -203,7 +203,7 @@ class PeliculasDaoMockImpl : PeliculasDao {
                     "+34627892520"
                 ),
                 Pelicula(
-                    "",
+                    "0",
                     "Hacia rutas salvajes",
                     "Sean Penn",
                     "Aventuras / Drama",

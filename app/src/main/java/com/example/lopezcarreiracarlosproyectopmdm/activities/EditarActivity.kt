@@ -98,7 +98,7 @@ class EditarActivity : AppCompatActivity() {
                                 val indicePelicula = peliculas.indexOf(pelicula)
 
                                 val peliculaEditada = Pelicula(
-                                    "", titulo, director, genero, nota, img, ano, duracion, musica,
+                                    null, titulo, director, genero, nota, img, ano, duracion, musica,
                                     foto, pais, desc, "+34627892520"
                                 )
                                 peliculas[indicePelicula] = peliculaEditada
