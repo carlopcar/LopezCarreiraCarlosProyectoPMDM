@@ -46,7 +46,7 @@ class PeliculasActivity : AppCompatActivity() {
         //Retrofit
         val context = this
 
-        var token = "Bearer " + preferences.recuperarDatosToken("")
+        val token = "Bearer " + preferences.recuperarDatosToken("")
 
         val llamadaApi: Call<List<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas(token)
         llamadaApi.enqueue(object:Callback<List<Pelicula>>{
@@ -83,7 +83,7 @@ class PeliculasActivity : AppCompatActivity() {
         //Retrofit
         val context = this
 
-        var token = "Bearer " + preferences.recuperarDatosToken("")
+        val token = "Bearer " + preferences.recuperarDatosToken("")
 
         val llamadaApi: Call<List<Pelicula>> = RetrofitClient.apiRetrofit.getPeliculas(token)
         llamadaApi.enqueue(object:Callback<List<Pelicula>>{

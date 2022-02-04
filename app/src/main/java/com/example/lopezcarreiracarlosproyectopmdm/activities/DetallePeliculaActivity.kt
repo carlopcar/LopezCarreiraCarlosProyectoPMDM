@@ -75,7 +75,7 @@ class DetallePeliculaActivity : AppCompatActivity() {
 
                 val builder = AlertDialog.Builder(this)
                 val dialog = builder.setTitle("LLamar al director").setMessage(
-                    "Estas a punto de llamar al director de la película, ¿Estás seguro?")
+                    "Estás a punto de llamar al director de la película, ¿Estás seguro?")
                     .setPositiveButton("Aceptar") { _, _ ->
                         val num: String = pelicula.numDirector
                         if (!TextUtils.isEmpty(num)) {
@@ -117,7 +117,7 @@ class DetallePeliculaActivity : AppCompatActivity() {
                         preferences = Preferences(this)
                         val context = this
 
-                        var token = "Bearer " + preferences.recuperarDatosToken("")
+                        val token = "Bearer " + preferences.recuperarDatosToken("")
 
                         val llamadaApi: Call<Unit> = apiRetrofit.borrar(token , pelicula.id)
                         llamadaApi.enqueue(object: Callback<Unit> {

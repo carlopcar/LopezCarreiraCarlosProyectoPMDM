@@ -26,8 +26,6 @@ class RegistroUsuariosActivity : AppCompatActivity() {
                 val email = binding.etRegistroEmail.text.toString().trim()
                 val psw = binding.etRegistroPsw.text.toString().trim()
 
-                //preferences.guardar(email , psw)
-
                 //Volver a Login
                 onBackPressed()
             }

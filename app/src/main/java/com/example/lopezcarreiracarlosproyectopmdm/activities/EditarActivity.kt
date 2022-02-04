@@ -20,10 +20,10 @@ import retrofit2.Response
 class EditarActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditarBinding
-    private lateinit var  pelicula:Pelicula
+    private var pelicula: Pelicula? = null
+    private var id: String? = null
     companion object {
         lateinit var preferences: Preferences
-        lateinit var id: String
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,48 +32,53 @@ class EditarActivity : AppCompatActivity() {
         binding = ActivityEditarBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        id = intent.extras?.get("id") as String?
 
-        id = intent.extras?.get("id") as String
+        if(id != null) {
+            //Retrofit
+            DetallePeliculaActivity.preferences = Preferences(this)
+            val context = this
 
-        //Retrofit
+            val token = "Bearer " + DetallePeliculaActivity.preferences.recuperarDatosToken("")
 
-        DetallePeliculaActivity.preferences = Preferences(this)
-        val context = this
+            val llamadaApi: Call<Pelicula> = apiRetrofit.getById(token, id)
+            llamadaApi.enqueue(object : Callback<Pelicula> {
 
-        val token = "Bearer " + DetallePeliculaActivity.preferences.recuperarDatosToken("")
+                override fun onResponse(
+                    call: Call<Pelicula>, response: Response<Pelicula>
+                ) {
 
-        val llamadaApi: Call<Pelicula> = apiRetrofit.getById(token , id)
-        llamadaApi.enqueue(object: Callback<Pelicula> {
+                    pelicula = response.body()!!
 
-            override fun onResponse(call: Call<Pelicula>, response: Response<Pelicula>
-            ) {
+                    if (response.code() > 299 || response.code() < 200) {
 
-                pelicula = response.body()!!
+                        Toast.makeText(
+                            context,
+                            "No ha sido posible recuperar la película",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
-                if (response.code() > 299 || response.code() < 200) {
+                    } else {
 
-                    Toast.makeText(context,"No ha sido posible recuperar la película", Toast.LENGTH_SHORT).show()
-
-                } else {
-
-                    binding.tiedTitulo.setText(pelicula.titulo)
-                    binding.tiedDirector.setText(pelicula.director)
-                    binding.tiedGenero.setText(pelicula.genero)
-                    binding.tiedNota.setText(pelicula.nota)
-                    binding.tiedAno.setText(pelicula.ano)
-                    binding.tiedDuracion.setText(pelicula.duracion)
-                    binding.tiedMusica.setText(pelicula.musica)
-                    binding.tiedFoto.setText(pelicula.fotografia)
-                    binding.tiedPais.setText(pelicula.pais)
-                    binding.tiedDesc.setText(pelicula.descripcion)
-                    binding.tiedImagen.setText(pelicula.url)
+                        binding.tiedTitulo.setText(pelicula?.titulo)
+                        binding.tiedDirector.setText(pelicula?.director)
+                        binding.tiedGenero.setText(pelicula?.genero)
+                        binding.tiedNota.setText(pelicula?.nota)
+                        binding.tiedAno.setText(pelicula?.ano)
+                        binding.tiedDuracion.setText(pelicula?.duracion)
+                        binding.tiedMusica.setText(pelicula?.musica)
+                        binding.tiedFoto.setText(pelicula?.fotografia)
+                        binding.tiedPais.setText(pelicula?.pais)
+                        binding.tiedDesc.setText(pelicula?.descripcion)
+                        binding.tiedImagen.setText(pelicula?.url)
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<Pelicula>, t: Throwable) {
-                Log.d("Prueba", t.message.toString())
-            }
-        })
+                override fun onFailure(call: Call<Pelicula>, t: Throwable) {
+                    Log.d("Prueba", t.message.toString())
+                }
+            })
+        }
 
 
     }
@@ -121,7 +126,7 @@ class EditarActivity : AppCompatActivity() {
 
                                 preferences = Preferences(this)
 
-                                val peliculaEditada = Pelicula(pelicula.id, titulo, director, genero, nota, img, ano, duracion,
+                                val peliculaEditada = Pelicula(pelicula?.id, titulo, director, genero, nota, img, ano, duracion,
                                     musica, foto, pais, desc, "+34627892520")
 
                                 //Retrofit
@@ -184,13 +189,6 @@ class EditarActivity : AppCompatActivity() {
                                     }
                                 })
 
-
-                                /*peliculas.add(
-                                    Pelicula(
-                                        "", titulo, director, genero, nota, img, ano, duracion,
-                                        musica, foto, pais, desc, "+34627892520"
-                                    )
-                                )*/
                                 Toast.makeText(this, "Lista actulizada", Toast.LENGTH_SHORT).show()
                                 finish()
 
