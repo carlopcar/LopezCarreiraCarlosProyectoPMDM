@@ -52,13 +52,6 @@ class DetallePeliculaActivity : AppCompatActivity() {
 
     }
 
-    //Utilizo el onStop para forzar que al editar una película volvamos directamente a la lista
-    //de películas ya que entiendo que el usuario debe presuponer que la función editar se realiza
-    //correctamente y no tiene sentido volver al detalle para comprobarlo.
-    override fun onStop() {
-        super.onStop()
-        onBackPressed()
-    }
 
 
 

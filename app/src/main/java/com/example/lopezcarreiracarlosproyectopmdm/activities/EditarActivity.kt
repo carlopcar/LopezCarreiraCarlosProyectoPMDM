@@ -148,6 +148,8 @@ class EditarActivity : AppCompatActivity() {
                                         }else{
                                             Toast.makeText(context, "Lista actualizada", Toast.LENGTH_SHORT).show()
                                             finish()
+                                            onBackPressed()
+
                                         }
                                     }
 

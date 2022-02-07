@@ -5,10 +5,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lopezcarreiracarlosproyectopmdm.App.Companion.peliculas
+import com.example.lopezcarreiracarlosproyectopmdm.R
 import com.example.lopezcarreiracarlosproyectopmdm.RetrofitClient
 import com.example.lopezcarreiracarlosproyectopmdm.adapters.ListaPeliculasAdapter
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityPeliculasBinding
@@ -78,6 +82,7 @@ class PeliculasActivity : AppCompatActivity() {
         })
     }
 
+
     override fun onResume() {
         super.onResume()
         //Retrofit
@@ -113,5 +118,35 @@ class PeliculasActivity : AppCompatActivity() {
                 Log.d("Prueba", t.message.toString())
             }
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_lista_peliculas, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+
+            R.id.accion_logout -> {
+
+                val builder = AlertDialog.Builder(this)
+                val dialog = builder.setTitle("Salir de la app").setMessage(
+                    "Estás a punto de salir de la aplicación, ¿Estás seguro?")
+                    .setPositiveButton("Aceptar") { _, _ ->
+                        val intent = Intent(this, LoginActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        startActivity(intent)
+                    }
+                    .setNegativeButton("Cancelar",null)
+                    .create()
+                dialog.show()
+
+                return true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+
     }
 }

@@ -37,6 +37,5 @@
     <string name="hint_guardar">Guardar</string>
     <string name="hint_eliminar">Eliminar</string>
     <string name="hint_llamar">Llamar</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_salir">Logout</string>
 </resources>

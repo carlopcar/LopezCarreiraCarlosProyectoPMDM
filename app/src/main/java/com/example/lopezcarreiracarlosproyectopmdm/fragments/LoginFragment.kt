@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.lopezcarreiracarlosproyectopmdm.R
 import com.example.lopezcarreiracarlosproyectopmdm.RetrofitClient
+import com.example.lopezcarreiracarlosproyectopmdm.activities.LoginActivity
 import com.example.lopezcarreiracarlosproyectopmdm.activities.PeliculasActivity
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.FragmentLoginBinding
 import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
@@ -51,6 +52,8 @@ class LoginFragment : Fragment() {
             var contraseña = binding.etLoginPsw.text.toString().trim()
 
 
+
+
             if (email =="") {
                 binding.etLoginEmail.error = "Introduce un email"
             } else if (contraseña == "") {
@@ -82,6 +85,7 @@ class LoginFragment : Fragment() {
                             preferences.guardarToken(token)
                             //Inicio nueva activity
                             val intent = Intent(con, PeliculasActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                             startActivity(intent)
                         }
 
