@@ -43,7 +43,10 @@ class LoginFragment : Fragment() {
         //Inicializamos las preferences
         preferences = Preferences(con)
 
-
+        var mail = preferences.recuperarDatosEmail("").toString()
+        if (mail != null) {
+            binding.etLoginEmail.setText(mail)
+        }
 
         //Método al pulsar el botón LOGIN
         binding.btLoginAcceder.setOnClickListener {
@@ -85,7 +88,7 @@ class LoginFragment : Fragment() {
                             preferences.guardarToken(token)
                             //Inicio nueva activity
                             val intent = Intent(con, PeliculasActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
                         }
 

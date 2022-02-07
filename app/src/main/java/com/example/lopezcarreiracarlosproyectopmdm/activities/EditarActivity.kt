@@ -1,5 +1,6 @@
 package com.example.lopezcarreiracarlosproyectopmdm.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -147,8 +148,9 @@ class EditarActivity : AppCompatActivity() {
 
                                         }else{
                                             Toast.makeText(context, "Lista actualizada", Toast.LENGTH_SHORT).show()
-                                            finish()
-                                            onBackPressed()
+                                            val intent = Intent(context, PeliculasActivity::class.java)
+                                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                            startActivity(intent)
 
                                         }
                                     }
