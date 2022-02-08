@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".App"
         android:allowBackup="true"
         android:label="@string/app_name"
         android:icon="@drawable/ic_app"
@@ -27,14 +26,6 @@
             android:name=".activities.PeliculasActivity"
             android:exported="true"
             android:label="Listado de Peliculas"/>
-        <activity
-            android:name=".activities.RegistroUsuariosActivity"
-            android:exported="true"
-            android:label="Registro">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.LoginActivity" />
-        </activity>
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true">

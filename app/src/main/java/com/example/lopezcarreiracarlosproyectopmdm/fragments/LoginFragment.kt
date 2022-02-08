@@ -11,18 +11,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.lopezcarreiracarlosproyectopmdm.R
 import com.example.lopezcarreiracarlosproyectopmdm.RetrofitClient
-import com.example.lopezcarreiracarlosproyectopmdm.activities.LoginActivity
 import com.example.lopezcarreiracarlosproyectopmdm.activities.PeliculasActivity
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.FragmentLoginBinding
 import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
-import com.example.lopezcarreiracarlosproyectopmdm.model.dao.retrofit.Api
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Token
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Usuario
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 class LoginFragment : Fragment() {
@@ -54,35 +50,36 @@ class LoginFragment : Fragment() {
             startActivity(intent)
         }
 
-            var mail = preferences.recuperarDatosEmail("").toString()
-            if (mail != null) {
-                binding.etLoginEmail.setText(mail)
-            }
-
             //Método al pulsar el botón LOGIN
             binding.btLoginAcceder.setOnClickListener {
 
-                //Desactivar boton acceder
+                //Desactivar boton acceder y visibilidad progresbar
                 binding.btLoginAcceder.isEnabled = false
+                binding.progressBar.visibility = View.VISIBLE
 
-                var email = binding.etLoginEmail.text.toString().trim()
-                var contraseña = binding.etLoginPsw.text.toString().trim()
+                val email = binding.etLoginEmail.text.toString().trim()
+                val contrasenha = binding.etLoginPsw.text.toString().trim()
 
 
                 if (email == "") {
                     binding.etLoginEmail.error = "Introduce un email"
-                } else if (contraseña == "") {
+                    binding.progressBar.visibility = View.GONE
+                    binding.btLoginAcceder.isEnabled = true
+                } else if (contrasenha == "") {
                     binding.etLoginPsw.error = "Introduce una contraseña"
+                    binding.progressBar.visibility = View.GONE
+                    binding.btLoginAcceder.isEnabled = true
                 } else {
 
-                    val u = Usuario(null, email, contraseña)
+                    val u = Usuario(null, email, contrasenha)
 
                     val loginCall = RetrofitClient.apiRetrofit.login(u)
 
                     loginCall.enqueue(object : Callback<Token> {
                         override fun onFailure(call: Call<Token>, t: Throwable) {
                             Toast.makeText(context,"No se puede acceder a esta página", Toast.LENGTH_SHORT).show()
-
+                            binding.progressBar.visibility = View.GONE
+                            binding.btLoginAcceder.isEnabled = true
                         }
 
                         override fun onResponse(call: Call<Token>, response: Response<Token>) {
@@ -91,6 +88,8 @@ class LoginFragment : Fragment() {
                             if (response.code() > 299 || response.code() < 200) {
 
                                 Toast.makeText(activity, "No se ha podido iniciar sesión", Toast.LENGTH_SHORT).show()
+                                binding.progressBar.visibility = View.GONE
+                                binding.btLoginAcceder.isEnabled = true
 
                             } else {
 
@@ -126,10 +125,8 @@ class LoginFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        var mail = preferences.recuperarDatosEmail("").toString()
-        if (mail != null) {
-            binding.etLoginEmail.setText(mail)
-        }
+        val mail = preferences.recuperarDatosEmail("").toString()
+        binding.etLoginEmail.setText(mail)
     }
 
 }

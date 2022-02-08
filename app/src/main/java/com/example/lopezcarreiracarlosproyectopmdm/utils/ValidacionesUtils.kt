@@ -2,9 +2,7 @@ package com.example.lopezcarreiracarlosproyectopmdm.utils
 
 import android.content.Context
 import android.content.Intent
-import androidx.core.content.ContextCompat.startActivity
 import com.example.lopezcarreiracarlosproyectopmdm.activities.LoginActivity
-import com.example.lopezcarreiracarlosproyectopmdm.activities.PeliculasActivity
 import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
 
 class ValidacionesUtils {

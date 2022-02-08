@@ -1,22 +1,17 @@
 package com.example.lopezcarreiracarlosproyectopmdm.activities
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.lopezcarreiracarlosproyectopmdm.App.Companion.peliculas
 import com.example.lopezcarreiracarlosproyectopmdm.R
 import com.example.lopezcarreiracarlosproyectopmdm.RetrofitClient
 import com.example.lopezcarreiracarlosproyectopmdm.adapters.ListaPeliculasAdapter
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityPeliculasBinding
-import com.example.lopezcarreiracarlosproyectopmdm.model.dao.PeliculasDaoMockImpl
 import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
 import com.example.lopezcarreiracarlosproyectopmdm.utils.ValidacionesUtils
