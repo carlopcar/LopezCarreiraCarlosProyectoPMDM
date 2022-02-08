@@ -19,6 +19,7 @@ import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityPeliculas
 import com.example.lopezcarreiracarlosproyectopmdm.model.dao.PeliculasDaoMockImpl
 import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
+import com.example.lopezcarreiracarlosproyectopmdm.utils.ValidacionesUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -62,6 +63,10 @@ class PeliculasActivity : AppCompatActivity() {
 
                 if (response.code() > 299 || response.code() < 200 || peliculas == null) {
 
+                    if (response.code() == 401 || response.code() == 500){
+                        ValidacionesUtils().reiniciarApp(preferences,context)
+                    }
+
                     Toast.makeText(context,"No ha sido posible cargar la lista de películas", Toast.LENGTH_SHORT).show()
 
                 } else {
@@ -77,7 +82,7 @@ class PeliculasActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {
-                Log.d("Prueba", t.message.toString())
+                Toast.makeText(context,"No se puede acceder a esta página", Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -100,6 +105,10 @@ class PeliculasActivity : AppCompatActivity() {
 
                 if (response.code() > 299 || response.code() < 200 || peliculas == null) {
 
+                    if (response.code() == 401 || response.code() == 500){
+                        ValidacionesUtils().reiniciarApp(preferences,context)
+                    }
+
                     Toast.makeText(context,"No ha sido posible cargar la lista de películas", Toast.LENGTH_SHORT).show()
 
                 } else {
@@ -115,7 +124,7 @@ class PeliculasActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<Pelicula>>, t: Throwable) {
-                Log.d("Prueba", t.message.toString())
+                Toast.makeText(context,"No se puede acceder a esta página", Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -134,9 +143,7 @@ class PeliculasActivity : AppCompatActivity() {
                 val dialog = builder.setTitle("Salir de la app").setMessage(
                     "Estás a punto de salir de la aplicación, ¿Estás seguro?")
                     .setPositiveButton("Aceptar") { _, _ ->
-                        val intent = Intent(this, LoginActivity::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        startActivity(intent)
+                        ValidacionesUtils().reiniciarApp(preferences,this)
                     }
                     .setNegativeButton("Cancelar",null)
                     .create()

@@ -132,7 +132,7 @@ class DetallePeliculaActivity : AppCompatActivity() {
                             }
 
                             override fun onFailure(call: Call<Unit>, t: Throwable) {
-                                Log.d("Prueba", t.message.toString())
+                                Toast.makeText(context,"No se puede acceder a esta página", Toast.LENGTH_SHORT).show()
                             }
                         })
 

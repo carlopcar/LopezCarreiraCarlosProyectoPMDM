@@ -14,6 +14,7 @@ import com.example.lopezcarreiracarlosproyectopmdm.RetrofitClient.apiRetrofit
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.ActivityEditarBinding
 import com.example.lopezcarreiracarlosproyectopmdm.model.dao.Preferences
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Pelicula
+import com.example.lopezcarreiracarlosproyectopmdm.utils.ValidacionesUtils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -52,12 +53,11 @@ class EditarActivity : AppCompatActivity() {
                     pelicula = response.body()!!
 
                     if (response.code() > 299 || response.code() < 200) {
+                        if (response.code() == 401 || response.code() == 500){
+                            ValidacionesUtils().reiniciarApp(preferences,context)
+                        }
 
-                        Toast.makeText(
-                            context,
-                            "No ha sido posible recuperar la película",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(context, "No ha sido posible recuperar la película", Toast.LENGTH_SHORT).show()
 
                     } else {
 
@@ -76,7 +76,7 @@ class EditarActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<Pelicula>, t: Throwable) {
-                    Log.d("Prueba", t.message.toString())
+                    Toast.makeText(context,"No se puede acceder a esta página", Toast.LENGTH_SHORT).show()
                 }
             })
         }
@@ -144,6 +144,10 @@ class EditarActivity : AppCompatActivity() {
 
                                         if (response.code() > 299 || response.code() < 200) {
 
+                                            if (response.code() == 401 || response.code() == 500){
+                                                ValidacionesUtils().reiniciarApp(preferences,context)
+                                            }
+
                                             Toast.makeText(context,"No ha sido posible editar la película", Toast.LENGTH_SHORT).show()
 
                                         }else{
@@ -156,7 +160,7 @@ class EditarActivity : AppCompatActivity() {
                                     }
 
                                     override fun onFailure(call: Call<Unit>, t: Throwable) {
-                                        Log.d("Prueba", t.message.toString())
+                                        Toast.makeText(context,"No se puede acceder a esta página", Toast.LENGTH_SHORT).show()
                                     }
                                 })
 
@@ -183,13 +187,17 @@ class EditarActivity : AppCompatActivity() {
 
                                         if (response.code() > 299 || response.code() < 200) {
 
+                                            if (response.code() == 401 || response.code() == 500){
+                                                ValidacionesUtils().reiniciarApp(preferences,context)
+                                            }
+
                                             Toast.makeText(context,"No ha sido posible cargar la lista de películas", Toast.LENGTH_SHORT).show()
 
                                         }
                                     }
 
                                     override fun onFailure(call: Call<Unit>, t: Throwable) {
-                                        Log.d("Prueba", t.message.toString())
+                                        Toast.makeText(context,"No se puede acceder a esta página", Toast.LENGTH_SHORT).show()
                                     }
                                 })
 

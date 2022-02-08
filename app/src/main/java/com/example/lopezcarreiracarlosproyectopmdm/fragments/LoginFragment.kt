@@ -40,65 +40,74 @@ class LoginFragment : Fragment() {
 
         activity?.title = "Login"
 
+        //Activar boton acceder
+        binding.btLoginAcceder.isEnabled = true
+
         //Inicializamos las preferences
         preferences = Preferences(con)
 
-        var mail = preferences.recuperarDatosEmail("").toString()
-        if (mail != null) {
-            binding.etLoginEmail.setText(mail)
+        //Si hay token iniciamos la app directamente.
+
+        if (!preferences.recuperarDatosToken("").isNullOrEmpty()){
+            val intent = Intent(con, PeliculasActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
 
-        //Método al pulsar el botón LOGIN
-        binding.btLoginAcceder.setOnClickListener {
-
-            var email = binding.etLoginEmail.text.toString().trim()
-            var contraseña = binding.etLoginPsw.text.toString().trim()
-
-
-
-
-            if (email =="") {
-                binding.etLoginEmail.error = "Introduce un email"
-            } else if (contraseña == "") {
-                binding.etLoginPsw.error = "Introduce una contraseña"
-            } else {
-
-                val u = Usuario(null,email, contraseña)
-
-                val loginCall = RetrofitClient.apiRetrofit.login(u)
-
-                loginCall.enqueue(object: Callback<Token> {
-                    override fun onFailure(call: Call<Token>, t: Throwable) {
-                        Log.d("respuesta: onFailure", t.toString())
-
-                    }
-
-                    override fun onResponse(call: Call<Token>, response: Response<Token>) {
-                        Log.d("respuesta: onResponse", response.toString())
-
-                        if (response.code() > 299 || response.code() < 200) {
-
-                            Toast.makeText(activity,"No se ha podido iniciar sesión", Toast.LENGTH_SHORT).show()
-
-                        } else {
-
-                            val token = response.body()?.token.toString()
-
-                            //Guardo en sharedPreferences el token y el email
-                            preferences.guardarToken(token)
-                            //Inicio nueva activity
-                            val intent = Intent(con, PeliculasActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                            startActivity(intent)
-                        }
-
-                    }
-                })
-
-
+            var mail = preferences.recuperarDatosEmail("").toString()
+            if (mail != null) {
+                binding.etLoginEmail.setText(mail)
             }
 
-        }
+            //Método al pulsar el botón LOGIN
+            binding.btLoginAcceder.setOnClickListener {
+
+                //Desactivar boton acceder
+                binding.btLoginAcceder.isEnabled = false
+
+                var email = binding.etLoginEmail.text.toString().trim()
+                var contraseña = binding.etLoginPsw.text.toString().trim()
+
+
+                if (email == "") {
+                    binding.etLoginEmail.error = "Introduce un email"
+                } else if (contraseña == "") {
+                    binding.etLoginPsw.error = "Introduce una contraseña"
+                } else {
+
+                    val u = Usuario(null, email, contraseña)
+
+                    val loginCall = RetrofitClient.apiRetrofit.login(u)
+
+                    loginCall.enqueue(object : Callback<Token> {
+                        override fun onFailure(call: Call<Token>, t: Throwable) {
+                            Toast.makeText(context,"No se puede acceder a esta página", Toast.LENGTH_SHORT).show()
+
+                        }
+
+                        override fun onResponse(call: Call<Token>, response: Response<Token>) {
+                            Log.d("respuesta: onResponse", response.toString())
+
+                            if (response.code() > 299 || response.code() < 200) {
+
+                                Toast.makeText(activity, "No se ha podido iniciar sesión", Toast.LENGTH_SHORT).show()
+
+                            } else {
+
+                                val token = response.body()?.token.toString()
+
+                                //Guardo en sharedPreferences el token y el email
+                                preferences.guardarToken(token)
+                                //Inicio nueva activity
+                                val intent = Intent(con, PeliculasActivity::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                startActivity(intent)
+                            }
+                        }
+                    })
+                }
+            }
+
 
         //Método al pulsar el textview REGISTRO
         binding.tvLoginRegistro.setOnClickListener {

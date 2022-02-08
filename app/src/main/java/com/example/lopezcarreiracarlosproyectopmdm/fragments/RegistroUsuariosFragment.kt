@@ -1,6 +1,5 @@
 package com.example.lopezcarreiracarlosproyectopmdm.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -11,10 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.lopezcarreiracarlosproyectopmdm.RetrofitClient
-import com.example.lopezcarreiracarlosproyectopmdm.activities.PeliculasActivity
 import com.example.lopezcarreiracarlosproyectopmdm.databinding.FragmentRegistroUsuariosBinding
 import com.example.lopezcarreiracarlosproyectopmdm.fragments.LoginFragment.Companion.preferences
-import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Token
 import com.example.lopezcarreiracarlosproyectopmdm.model.entities.Usuario
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,7 +42,7 @@ class RegistroUsuariosFragment : Fragment() {
                 signUpCall.enqueue(object: Callback<Unit> {
 
                     override fun onFailure(call: Call<Unit>, t: Throwable) {
-                        Log.d("respuesta: onFailure", t.toString())
+                        Toast.makeText(context,"No se puede acceder a esta página", Toast.LENGTH_SHORT).show()
 
                     }
 
